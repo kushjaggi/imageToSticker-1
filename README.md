@@ -10,6 +10,8 @@ This project require NodeJS v12.
 ### Install
 Clone this project
 
+
+
 ```bash
 > git clone https://github.com/Rishabh053/imageToSticker
 > cd imageToSticker
