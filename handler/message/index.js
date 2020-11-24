@@ -241,8 +241,18 @@ module.exports = msgHandler = async (client, message) => {
 
         case 'sex':
         case 'fuck':
+        case 'bsdk':
                 client.reply(from, 'Saale sudhroge nahi, ye karne ke liye main hu yaha😑😑', id)
                 break   
+
+        case 'mc':
+        case 'bc':
+        case 'saale':
+        case 'chutiye':
+        case 'chutiya':
+                client.reply(from, 'Gaali sunna hai bot se?😑😑', id)
+                break  
+                
                 
      /*  case 'resi':
             if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
