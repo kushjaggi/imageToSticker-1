@@ -281,14 +281,14 @@ module.exports = msgHandler = async (client, message) => {
 
         // Group Commands (group admin only)
         case 'kick':
-            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Group Only]', id)
-            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Admin Group Only]', id)
-            if (!isBotGroupAdmins) return client.reply(from, 'Failed, please add the bot as a group admin! [Bot Not Admin]', id)
-            if (mentionedJidList.length === 0) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-            if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-            await client.sendTextWithMentions(from, `Request received, issued:\n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')}`)
+            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
+            if (!isBotGroupAdmins) return client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)
+            if (mentionedJidList.length === 0) return client.reply(from, 'Galat format hai baba😐😐', id)
+            if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Fir se kar bhai sahi format me🙄🙄', id)
+            await client.sendTextWithMentions(from, `Kaam ho gaya:\n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')}`)
             for (let i = 0; i < mentionedJidList.length; i++) {
-                if (groupAdmins.includes(mentionedJidList[i])) return await client.sendText(from, 'Failed, you cannot remove the group admin.')
+                if (groupAdmins.includes(mentionedJidList[i])) return await client.sendText(from, 'bhosdike admin ko hi nikaal de😂😂')
                 await client.removeParticipant(groupId, mentionedJidList[i])
             }
             break
