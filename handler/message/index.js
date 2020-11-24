@@ -293,9 +293,9 @@ module.exports = msgHandler = async (client, message) => {
             if (!isBotGroupAdmins) return await client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)
             if (mentionedJidList.length != 1) return client.reply(from, 'ek ek karke bhai😒', id)
             if (groupAdmins.includes(mentionedJidList[0])) return await client.reply(from, 'Wo pehle se admin hai😒😒', id)
-            if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Format galat hai bhai bot hu insan nahi🙄🙄', id)
+            if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Format galat hai bhai *#promote* @name type kar🙄🙄', id)
             await client.promoteParticipant(groupId, mentionedJidList[0])
-            await client.sendTextWithMentions(from, `Request accepted, added @${mentionedJidList[0].replace('@c.us', '')} as admin`)
+            await client.sendTextWithMentions(from, ` @${mentionedJidList[0].replace('@c.us', '')} ab admin hai`)
             break
         case 'demote':
             if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
@@ -303,19 +303,19 @@ module.exports = msgHandler = async (client, message) => {
             if (!isBotGroupAdmins) return client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)
             if (mentionedJidList.length !== 1) return client.reply(from, 'ek ek karke bhai😒', id)
             if (!groupAdmins.includes(mentionedJidList[0])) return await client.reply(from, 'Admin nahi hai wo😒😒', id)
-            if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Format galat hai bhai bot hu insan nahi🙄🙄', id)
+            if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Format galat hai bhai *#demote* @name type kar🙄🙄', id)
             await client.demoteParticipant(groupId, mentionedJidList[0])
-            await client.sendTextWithMentions(from, `hata diya @${mentionedJidList[0].replace('@c.us', '')}.`)
+            await client.sendTextWithMentions(from, `hata diya @${mentionedJidList[0].replace('@c.us', '')} ko admin se`)
             break
         case 'bye':
-            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😔😔', id)
-            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😔😔', id)
-            client.sendText(from, 'Good bye... ( ⇀‸↼‶ )').then(() => client.leaveGroup(groupId))
+            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu😜😜', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu😂😂', id)
+            client.sendText(from, 'Bhaga diye naa.. jaa raha hu😭😭').then(() => client.leaveGroup(groupId))
             break
         case 'del':
-            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😔😔', id)
-            if (!quotedMsg) return client.reply(from, 'Format galat hai bhai bot hu insan nahi🙄🙄', id)
-            if (!quotedMsgObj.fromMe) return client.reply(from, 'Format galat hai bhai bot hu insan nahi🙄🙄', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu🤣🤣', id)
+            if (!quotedMsg) return client.reply(from, 'Format galat hai bhai message pe reply kar ke bol🙄🙄', id)
+            if (!quotedMsgObj.fromMe) return client.reply(from, 'Format galat hai bhai message pe reply kar ke bol🙄🙄', id)
             client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
             break
         case 'tagall':
