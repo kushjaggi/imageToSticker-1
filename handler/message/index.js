@@ -67,8 +67,8 @@ module.exports = msgHandler = async (client, message) => {
                 .then(() => ((isGroupMsg) && (isGroupAdmins)) ? client.sendText(from, 'Menu Admin Grup: *#menuadmin*') : null)
             break
         case 'menuadmin':
-            if (!isGroupMsg) return client.reply(from, 'Sorry, this can only be used within groups! [Group Only]', id)
-            if (!isGroupAdmins) return client.reply(from, 'Failed, this command can only be used by group admins! [Admin Group Only]', id)
+            if (!isGroupMsg) return client.reply(from, 'Sorry, bhai tu admin nahi hai[Group Only]', id)
+            if (!isGroupAdmins) return client.reply(from, 'Failed, admin ban pehle! [Admin Group Only]', id)
             await client.sendText(from, menuId.textAdmin())
             break
         case 'donate':
@@ -84,7 +84,7 @@ module.exports = msgHandler = async (client, message) => {
                 const mediaData = await decryptMedia(encryptMedia, uaOverride)
                 const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
                 client.sendImageAsSticker(from, imageBase64).then(() => {
-                    client.reply(from, 'Here\'s your sticker')
+                    client.reply(from, 'Ye lo tumhara sticker')
                     console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
                 })
             } else if (args[0] === 'nobg') {
@@ -94,12 +94,12 @@ module.exports = msgHandler = async (client, message) => {
                 */
                 client.reply(from, 'ehhh, what\'s that???', id)
             } else if (args.length === 1) {
-                if (!is.Url(url)) { await client.reply(from, 'Sorry, the link you submitted is invalid. [Invalid Link]', id) }
+                if (!is.Url(url)) { await client.reply(from, 'Link galat hai bhai. [Invalid Link]', id) }
                 client.sendStickerfromUrl(from, url).then((r) => (!r && r !== undefined)
-                    ? client.sendText(from, 'Sorry, the link you submitted does not contain an image. [No Image]')
-                    : client.reply(from, 'Here\'s your sticker')).then(() => console.log(`Sticker Processed for ${processTime(t, moment())} Second`))
+                    ? client.sendText(from, 'Sorry, Is link me koi image nahi hai bro. [No Image]')
+                    : client.reply(from, 'Ye le, zee le apni zindagi')).then(() => console.log(`Sticker Processed for ${processTime(t, moment())} Second`))
             } else {
-                await client.reply(from, 'No picture! To open a list of commands send #menu [Wrong Format]', id)
+                await client.reply(from, ' beta tumse na ho payega [Wrong Format]', id)
             }
             break
         }
@@ -114,7 +114,7 @@ module.exports = msgHandler = async (client, message) => {
                 const giphyCode = getGiphyCode[0].replace(/[-\/]/gi, '')
                 const smallGifUrl = 'https://media.giphy.com/media/' + giphyCode + '/giphy-downsized.gif'
                 client.sendGiphyAsSticker(from, smallGifUrl).then(() => {
-                    client.reply(from, 'Here\'s your sticker')
+                    client.reply(from, 'Ye le aish kar')
                     console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
                 }).catch((err) => console.log(err))
             } else if (is.MediaGiphy(url)) {
@@ -122,7 +122,7 @@ module.exports = msgHandler = async (client, message) => {
                 if (!gifUrl) { return client.reply(from, 'Failed to retrieve the giphy code', id) }
                 const smallGifUrl = url.replace(gifUrl[0], 'giphy-downsized.gif')
                 client.sendGiphyAsSticker(from, smallGifUrl).then(() => {
-                    client.reply(from, 'Here\'s your sticker')
+                    client.reply(from, 'Ye le aish kar')
                     console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
                 }).catch((err) => console.log(err))
             } else {
@@ -132,21 +132,21 @@ module.exports = msgHandler = async (client, message) => {
         }
         // Video Downloader
         case 'tiktok':
-            if (args.length !== 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
+            if (args.length !== 1) return client.reply(from, 'Bhosdike tiktoker, nikal yaha se. [Wrong Format]', id)
             if (!is.Url(url) && !url.includes('tiktok.com')) return client.reply(from, 'Sorry, the link you submitted is invalid. [Invalid Link]', id)
-            await client.reply(from, `_Scraping Metadata..._ \n\n${menuId.textDonasi()}`, id)
+            await client.reply(from, `_Abhi bhi bol raha hu tiktok chhor de_ \n\n${menuId.textDonasi()}`, id)
             downloader.tiktok(url).then(async (videoMeta) => {
                 const filename = videoMeta.authorMeta.name + '.mp4'
                 const caps = `*Metadata:*\nUsername: ${videoMeta.authorMeta.name} \nMusic: ${videoMeta.musicMeta.musicName} \nView: ${videoMeta.playCount.toLocaleString()} \nLike: ${videoMeta.diggCount.toLocaleString()} \nComment: ${videoMeta.commentCount.toLocaleString()} \nShare: ${videoMeta.shareCount.toLocaleString()} \nCaption: ${videoMeta.text.trim() ? videoMeta.text : '-'}`
                 await client.sendFileFromUrl(from, videoMeta.url, filename, videoMeta.NoWaterMark ? caps : `⚠ Videos without watermark are not available. \n\n${caps}`, '', { headers: { 'User-Agent': 'okhttp/4.5.0', referer: 'https://www.tiktok.com/' } }, true)
                     .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
                     .catch((err) => console.error(err))
-            }).catch(() => client.reply(from, 'Failed to retrieve metadata, the link you submitted is invalid. [Invalid Link]', id))
+            }).catch(() => client.reply(from, 'Bhosdike tiktoker, nikal yaha se. [Invalid Link]', id))
             break
         case 'ig':
         case 'instagram':
-            if (args.length !== 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-            if (!is.Url(url) && !url.includes('instagram.com')) return client.reply(from, 'Sorry, the link you submitted is invalid. [Invalid Link]', id)
+            if (args.length !== 1) return client.reply(from, 'Galat format hai bhai, bot hu insan nahi *#menu* dekh le [Wrong Format]', id)
+            if (!is.Url(url) && !url.includes('instagram.com')) return client.reply(from, 'beta tumse na ho payega. [Invalid Link]', id)
             await client.reply(from, `_Scraping Metadata..._ \n\n${menuId.textDonasi()}`, id)
             downloader.insta(url).then(async (data) => {
                 if (data.type == 'GraphSidecar') {
@@ -172,13 +172,13 @@ module.exports = msgHandler = async (client, message) => {
             })
                 .catch((err) => {
                     console.log(err)
-                    if (err === 'Not a video') { return client.reply(from, 'Error, there is no video in the link you sent. [Invalid Link]', id) }
-                    client.reply(from, '[Private or Invalid Link]', id)
+                    if (err === 'Not a video') { return client.reply(from, 'Error, Link Invalid hai bhai [Invalid Link]', id) }
+                    client.reply(from, 'Bahot Tez ho rahe ho, [Private or Invalid Link]', id)
                 })
             break
         case 'twt':
         case 'twitter':
-            if (args.length !== 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
+            if (args.length !== 1) return client.reply(from, 'Tumse na ho payega tum *#menu* dekho [Wrong Format]', id)
             if (!is.Url(url) & !url.includes('twitter.com') || url.includes('t.co')) return client.reply(from, '[Invalid Link]', id)
             await client.reply(from, `_Scraping Metadata..._ \n\n${menuId.textDonasi()}`, id)
             downloader.tweet(url).then(async (data) => {
@@ -197,13 +197,13 @@ module.exports = msgHandler = async (client, message) => {
                     }
                 }
             })
-                .catch(() => client.sendText(from, 'Sorry, the link is invalid or there is no media in the link you sent. [Invalid Link]'))
+                .catch(() => client.sendText(from, 'Koi media hi nahi hai is link me kaha se du? [Invalid Link]'))
             break
         case 'fb':
         case 'facebook':
-            if (args.length !== 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
+            if (args.length !== 1) return client.reply(from, 'Bhai pehle *#menu* dekh le [Wrong Format]', id)
             if (!is.Url(url) && !url.includes('facebook.com')) return client.reply(from, '[Invalid Link]', id)
-            await client.reply(from, `_Scraping Metadata..._ \n\n${menuId.textDonasi()}`, id)
+            await client.reply(from, `_Ruko thoda sabr karo_ \n\n${menuId.textDonasi()}`, id)
             downloader.facebook(url).then(async (videoMeta) => {
                 const title = videoMeta.response.title
                 const thumbnail = videoMeta.response.thumbnail
@@ -221,7 +221,7 @@ module.exports = msgHandler = async (client, message) => {
                     .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
                     .catch((err) => console.error(err))
             })
-                .catch((err) => client.reply(from, `[Invalid Link or No Video] \n\n${err}`, id))
+                .catch((err) => client.reply(from, `Kucch nahi mila yaha fir se bhej [Invalid Link or No Video] \n\n${err}`, id))
             break
         // Other Command
         case 'meme':
@@ -236,7 +236,7 @@ module.exports = msgHandler = async (client, message) => {
                     .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
                     .catch((err) => console.error(err))
             } else {
-                await client.reply(from, 'No picture! To open how to use send #menu [Wrong Format]', id)
+                await client.reply(from, 'tumse na ho payega #menu dekh lo ek bar [Wrong Format]', id)
             }
             break
         case 'resi':
@@ -271,8 +271,8 @@ module.exports = msgHandler = async (client, message) => {
             break
         // Group Commands (group admin only)
         case 'kick':
-            if (!isGroupMsg) return client.reply(from, 'Sorry, this command can only be used within groups! [Group Only]', id)
-            if (!isGroupAdmins) return client.reply(from, 'Failed, this command can only be used by group admins! [Admin Group Only]', id)
+            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Group Only]', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Admin Group Only]', id)
             if (!isBotGroupAdmins) return client.reply(from, 'Failed, please add the bot as a group admin! [Bot Not Admin]', id)
             if (mentionedJidList.length === 0) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
@@ -283,8 +283,8 @@ module.exports = msgHandler = async (client, message) => {
             }
             break
         case 'promote':
-            if (!isGroupMsg) return await client.reply(from, 'Sorry, this command can only be used within groups! [Group Only]', id)
-            if (!isGroupAdmins) return await client.reply(from, 'Failed, this command can only be used by group admins! [Admin Group Only]', id)
+            if (!isGroupMsg) return await client.reply(from, 'Admin nahi hai bhai tu, Sorry [Group Only]', id)
+            if (!isGroupAdmins) return await client.reply(from, 'Admin nahi hai bhai tu, Sorry [Admin Group Only]', id)
             if (!isBotGroupAdmins) return await client.reply(from, 'Failed, please add the bot as a group admin! [Bot Not Admin]', id)
             if (mentionedJidList.length != 1) return client.reply(from, '[Wrong Format, Only 1 user]', id)
             if (groupAdmins.includes(mentionedJidList[0])) return await client.reply(from, 'Sorry, the user is already an admin [Bot is Admin]', id)
@@ -293,8 +293,8 @@ module.exports = msgHandler = async (client, message) => {
             await client.sendTextWithMentions(from, `Request accepted, added @${mentionedJidList[0].replace('@c.us', '')} as admin`)
             break
         case 'demote':
-            if (!isGroupMsg) return client.reply(from, 'Sorry, this command can only be used within groups! [Group Only]', id)
-            if (!isGroupAdmins) return client.reply(from, 'Failed, this command can only be used by group admins! [Admin Group Only]', id)
+            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Group Only]', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Admin Group Only]', id)
             if (!isBotGroupAdmins) return client.reply(from, 'Failed, please add the bot as a group admin! [Bot Not Admin]', id)
             if (mentionedJidList.length !== 1) return client.reply(from, '[Wrong Format, Only 1 user]', id)
             if (!groupAdmins.includes(mentionedJidList[0])) return await client.reply(from, '[user not Admin]', id)
@@ -303,12 +303,12 @@ module.exports = msgHandler = async (client, message) => {
             await client.sendTextWithMentions(from, `Request accepted, delete position@${mentionedJidList[0].replace('@c.us', '')}.`)
             break
         case 'bye':
-            if (!isGroupMsg) return client.reply(from, 'Sorry, this command can only be used within groups! [Group Only]', id)
-            if (!isGroupAdmins) return client.reply(from, 'Failed, this command can only be used by group admins! [Admin Group Only]', id)
+            if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Group Only]', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Admin Group Only]', id)
             client.sendText(from, 'Good bye... ( ⇀‸↼‶ )').then(() => client.leaveGroup(groupId))
             break
         case 'del':
-            if (!isGroupAdmins) return client.reply(from, 'Failed, this command can only be used by group admins! [Admin Group Only]', id)
+            if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Admin Group Only]', id)
             if (!quotedMsg) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             if (!quotedMsgObj.fromMe) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
