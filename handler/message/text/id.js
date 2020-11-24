@@ -1,7 +1,5 @@
 exports.textTnC = () => {
     return `
-Source code / bot is an open-source program (free) written using Javascript, you can use, copy, modify, combine, publish, distribute, sub-license, and or sell copies without removing the main author of this source code / bot.
-
 By using this source code / bot, you agree to the following Terms and Conditions:
     - Source code / bot does not store your data on our servers.
     - The source code / bot is not responsible for the stickers you make from this bot and the videos, images and other data that you get from the source code / bot.
@@ -14,7 +12,7 @@ By using this source code / bot, you agree to the following Terms and Conditions
         • forest burning / deforestation
         • hate speech or discrimination based on age, sex, gender identity, race, sexuality, religion, nationality
     
-Best regards, Rishabh .`
+Best regards, Rishabh.`
 }
 
 exports.textMenu = (pushname) => {
@@ -27,11 +25,11 @@ Sticker Maker:
 1. *#sticker*
 To convert an image into a sticker, send the image with the caption #sticker or reply to the image that has been sent with #sticker.
 
-2. *#stickers* _<Image Url>_
+2. *#sticker* _<Image Url>_
 To change the image from the url to a sticker.
 
 3. *#gifsticker* _<Giphy URL>_ / *#stickergif* _<Giphy URL>_
-To turn a gif into a sticker (Giphy only)
+To turn a gif into a sticker (upload your GIF on giphy.com/upload and share the link)
 
 Downloader (Only Videos)
 
@@ -40,6 +38,7 @@ Will return video tiktok.
 
 2. *#fb* _<post / video url>_
 Will return the Facebook video download link.
+_(Under Maintenece)_
 
 3. *#ig* _<post / video url>_
 Will return the Instagram video download link.
@@ -77,9 +76,8 @@ To delete a bot message (reply bot message with #del) `
 exports.textDonasi = () => {
     return `
 
-Hi, thank you for using this bot, to support this bot you can help by donating via the following link:
+Hi, thank you for using this bot, to support this bot you can help by the following link:
 https://www.buymeacoffee.com/rishabh053
-The donation will be used for the development and operation of this bot.
-    
+
     Thank you.`
 }

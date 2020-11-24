@@ -240,13 +240,15 @@ module.exports = msgHandler = async (client, message) => {
                 await client.reply(from, 'tumse na ho payega #menu dekh lo ek bar [Wrong Format]', id)
             }
             break
-        case 'resi':
+     /*  case 'resi':
             if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             const kurirs = ['jne', 'pos', 'tiki', 'wahana', 'jnt', 'rpx', 'sap', 'sicepat', 'pcp', 'jet', 'dse', 'first', 'ninja', 'lion', 'idl', 'rex']
             if (!kurirs.includes(args[0])) return client.sendText(from, `Maaf, jenis ekspedisi pengiriman tidak didukung layanan ini hanya mendukung ekspedisi pengiriman ${kurirs.join(', ')} Tolong periksa kembali.`)
             console.log('Memeriksa No Resi', args[1], 'dengan ekspedisi', args[0])
             cekResi(args[0], args[1]).then((result) => client.sendText(from, result))
-            break
+            break   */
+
+
         case 'translate':
             if (args.length != 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             if (!quotedMsg) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
@@ -255,7 +257,8 @@ module.exports = msgHandler = async (client, message) => {
                 .then((result) => client.sendText(from, result))
                 .catch(() => client.sendText(from, '[Error] Kode bahasa salah atau server bermasalah.'))
             break
-        case 'ceklok':
+            
+      /*  case 'ceklok':
         case 'ceklokasi':
             if (!quotedMsg || quotedMsg.type !== 'location') return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             console.log(`Request Status Zona Penyebaran Covid-19 (${quotedMsg.lat}, ${quotedMsg.lng}).`)
@@ -269,7 +272,9 @@ module.exports = msgHandler = async (client, message) => {
             }
             const text = `*CEK LOKASI PENYEBARAN COVID-19*\nHasil pemeriksaan dari lokasi yang anda kirim adalah *${zoneStatus.status}* ${zoneStatus.optional}\n\nInformasi lokasi terdampak disekitar anda:\n${data}`
             client.sendText(from, text)
-            break
+            break */
+
+
         // Group Commands (group admin only)
         case 'kick':
             if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry [Group Only]', id)
@@ -320,7 +325,7 @@ module.exports = msgHandler = async (client, message) => {
             * This is Premium feature.
             * Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information.
             */
-            client.reply(from, 'ehhh, what\'s that??? \n Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information', id)
+            client.reply(from, 'ehhh, what\'s that???', id)
             break
         case 'botstat': {
             const loadedMsg = await client.getAmountOfLoadedMessages()
@@ -330,6 +335,7 @@ module.exports = msgHandler = async (client, message) => {
             break
         }
         default:
+            client.reply(from, 'Bhai bot hu insaan nahi, *menu* type krle', id)
             console.log(color('[ERROR]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), 'Unregistered Command from', color(pushname))
             break
         }
