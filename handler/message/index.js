@@ -100,7 +100,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'stickergif':
         case 'gifstiker':
         case 'gifsticker': {
-            if (args.length !== 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
+            if (args.length !== 1) return client.reply(from, 'upload your gif on https://giphy.com/upload and then try with giphy link. [Wrong Format]', id)
             if (is.Giphy(url)) {
                 const getGiphyCode = url.match(new RegExp(/(\/|\-)(?:.(?!(\/|\-)))+$/, 'gi'))
                 if (!getGiphyCode) { return client.reply(from, 'Failed to retrieve the giphy code', id) }
