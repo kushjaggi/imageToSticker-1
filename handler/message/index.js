@@ -238,6 +238,11 @@ module.exports = msgHandler = async (client, message) => {
         case 'pornhub':
                 client.reply(from, 'Bade harami ho beta😏😏', id)
                 break   
+
+        case 'sex':
+        case 'fuck':
+                client.reply(from, 'Saale sudhroge nahi, ye karne ke liye main hu yaha😑😑', id)
+                break   
                 
      /*  case 'resi':
             if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
