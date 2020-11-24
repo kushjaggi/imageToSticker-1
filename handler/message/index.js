@@ -46,6 +46,13 @@ module.exports = msgHandler = async (client, message) => {
         msgFilter.addFilter(from)
 
         switch (command) {
+       //Hi and Hello
+       case 'hi':
+       case 'hello':
+       case 'hey':
+            await client.sendText(from, `Bhosdike, Machine hu Insan nahi #menu type kr`)
+            break
+
         // Menu and TnC
         case 'speed':
         case 'ping':
