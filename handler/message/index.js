@@ -218,7 +218,7 @@ module.exports = msgHandler = async (client, message) => {
                 }
                 const link = shorts.map((x) => `${x.resolution} Quality: ${x.short}`)
                 const caption = `Text: ${title} \n\nLink Download: \n${link.join('\n')} \n\nProcessed for ${processTime(t, moment())} _Second_`
-                await client.sendFileFromUrl(from, thumbnail, 'videos.jpg', caption, null, null, true)
+                await client.sendFileFromUrl(from, thumbnail, 'videos.mp4', caption, null, null, true)
                     .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
                     .catch((err) => console.error(err))
             })
