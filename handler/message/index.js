@@ -233,6 +233,12 @@ module.exports = msgHandler = async (client, message) => {
                 await client.reply(from, 'tumse na ho payega #menu dekh lo ek bar😂😂', id)
             }
             break
+
+        case 'porn':
+        case 'pornhub':
+                client.reply(from, 'Bade harami ho beta😏😏', id)
+                break   
+                
      /*  case 'resi':
             if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             const kurirs = ['jne', 'pos', 'tiki', 'wahana', 'jnt', 'rpx', 'sap', 'sicepat', 'pcp', 'jet', 'dse', 'first', 'ninja', 'lion', 'idl', 'rex']
