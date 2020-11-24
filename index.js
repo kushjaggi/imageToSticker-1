@@ -18,7 +18,6 @@ const start = (client = new Client()) => {
     // listening on message
     client.onMessage((message) => {
         // Cut message Cache if cache more than 3K
-        client.sendText(id, `Bot hu bhai, insaan nahi. Type *#menu* to start`)
         client.getAmountOfLoadedMessages().then((msg) => (msg >= 3000) && client.cutMsgCache())
         // Message Handler
         msgHandler(client, message)
@@ -43,9 +42,10 @@ const start = (client = new Client()) => {
         // if (event.action === 'add' && event.who !== host) client.sendTextWithMentions(event.chat, `Hello, Welcome to the group @${event.who.replace('@c.us', '')} \n\nHave fun with us✨`)
     })
 
-    client.onIncomingCall(async call=>{
-        await client.sendText(call.peerJid._serialized, 'Sorry I cannot accept calls');
-    });
+    
+    client.onIncomingCall((callData) => {
+        // client.contactBlock(callData.peerJid)
+    })
 }
 
 const options = {
