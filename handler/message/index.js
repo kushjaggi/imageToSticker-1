@@ -86,7 +86,7 @@ module.exports = msgHandler = async (client, message) => {
                 * This is Premium feature.
                 * Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information.
                 */
-                client.reply(from, 'hum karte hai prabandh aap chinta mat kijiye😇', id)
+                client.reply(from, 'itne paise me itna hi milega abhi🙄🙄', id)
             } else if (args.length === 1) {
                 if (!is.Url(url)) { await client.reply(from, 'Link galat hai bhai, direct link de mujhe😐😐', id) }
                 client.sendStickerfromUrl(from, url).then((r) => (!r && r !== undefined)
