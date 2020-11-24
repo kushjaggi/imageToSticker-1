@@ -50,7 +50,8 @@ module.exports = msgHandler = async (client, message) => {
        case 'hi':
        case 'hello':
        case 'hey':
-            await client.sendText(from, `Bhosdike, Machine hu Insan nahi #menu type kr`)
+            await client.sendText(from, `Bhosdike, M
+            achine hu Insan nahi #menu type kr`)
             break
 
         // Menu and TnC
@@ -257,7 +258,7 @@ module.exports = msgHandler = async (client, message) => {
                 .then((result) => client.sendText(from, result))
                 .catch(() => client.sendText(from, '[Error] Kode bahasa salah atau server bermasalah.'))
             break
-            
+
       /*  case 'ceklok':
         case 'ceklokasi':
             if (!quotedMsg || quotedMsg.type !== 'location') return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
@@ -335,7 +336,7 @@ module.exports = msgHandler = async (client, message) => {
             break
         }
         default:
-            client.reply(from, 'Bhai bot hu insaan nahi, *menu* type krle', id)
+            client.reply(from, 'Galat command hai bhai, *#menu* type krle, list ke liye', id)
             console.log(color('[ERROR]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), 'Unregistered Command from', color(pushname))
             break
         }
