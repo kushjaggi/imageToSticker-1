@@ -46,6 +46,9 @@ Will return the Twitter video download link.
 5. *#tnc*
 Displays Bot Terms and Conditions.
 
+6. *#share*
+Share this bot with your Group and Friends
+
 ☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`
 

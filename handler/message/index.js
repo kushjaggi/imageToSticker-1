@@ -253,7 +253,10 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, 'Gaali sunna hai bot se?😑😑', id)
                 break  
                 
-                
+        case 'share':
+                client.reply(from, 'To start coversation with me click *https://wa.link/w3syjd* \n To add me in your group *save my number and add me in your group*', id)
+                break  
+                       
      /*  case 'resi':
             if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             const kurirs = ['jne', 'pos', 'tiki', 'wahana', 'jnt', 'rpx', 'sap', 'sicepat', 'pcp', 'jet', 'dse', 'first', 'ninja', 'lion', 'idl', 'rex']
