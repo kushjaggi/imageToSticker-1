@@ -38,7 +38,7 @@ Will return video tiktok.
 
 2. *#fb* _<post / video url>_
 Will return the Facebook video download link.
-_(Under Maintenece)_
+
 
 3. *#ig* _<post / video url>_
 Will return the Instagram video download link.
@@ -50,7 +50,7 @@ Etc:
 1. *#tnc*
 Displays Bot Terms and Conditions.
 
-https://www.buymeacoffee.com/rishabh053
+https://buymeacoff.ee/rishabh053
 Hope you have a great day!✨`
 
 }
@@ -77,7 +77,7 @@ exports.textDonasi = () => {
     return `
 
 Hi, thank you for using this bot, to support this bot you can help by the following link:
-https://www.buymeacoffee.com/rishabh053
+https://buymeacoff.ee/rishabh053
 
     Thank you.`
 }

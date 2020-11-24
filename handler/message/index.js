@@ -50,8 +50,7 @@ module.exports = msgHandler = async (client, message) => {
        case 'hi':
        case 'hello':
        case 'hey':
-            await client.sendText(from, `Bhosdike, M
-            achine hu Insan nahi #menu type kr`)
+            await client.sendText(from, `Bhosdike, Machine hu Insan nahi #menu type kr`)
             break
 
         // Menu and TnC
