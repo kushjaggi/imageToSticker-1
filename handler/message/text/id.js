@@ -1,14 +1,11 @@
 exports.textTnC = () => {
     return `
-By using this source code / bot, you agree to the following Terms and Conditions:
-    - Source code / bot does not store your data on our servers.
-    - The source code / bot is not responsible for the stickers you make from this bot and the videos, images and other data that you get from the source code / bot.
-    - Source code / bot may not be used for services that aim / contribute to:
+By using this bot you accept that you are not involved in:
         • sex / human trafficking
         • gambling
         • harmful addictive behavior
         • crime
-        • violence (unless necessary to protect public safety)
+        • violence 
         • forest burning / deforestation
         • hate speech or discrimination based on age, sex, gender identity, race, sexuality, religion, nationality
     
@@ -46,11 +43,10 @@ Will return the Instagram video download link.
 4. *#twt* _<post / video url>_
 Will return the Twitter video download link.
 
-Etc:
-1. *#tnc*
+5. *#tnc*
 Displays Bot Terms and Conditions.
 
-https://buymeacoff.ee/rishabh053
+☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`
 
 }
@@ -75,9 +71,8 @@ To delete a bot message (reply bot message with #del) `
 
 exports.textDonasi = () => {
     return `
+If you enjoyed this bot consider buying me a coffee☕☕ 
+_https://buymeacoff.ee/rishabh053_
 
-Hi, thank you for using this bot, to support this bot you can help by the following link:
-https://buymeacoff.ee/rishabh053
-
-    Thank you.`
+Thank you.`
 }
