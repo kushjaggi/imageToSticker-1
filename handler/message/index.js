@@ -77,6 +77,7 @@ module.exports = msgHandler = async (client, message) => {
             break
         // Sticker Creator
         case 'sticker':
+        case 'stickers':    
         case 'stiker': {
             if ((isMedia || isQuotedImage) && args.length === 0) {
                 const encryptMedia = isQuotedImage ? quotedMsg : message
