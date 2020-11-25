@@ -74,8 +74,9 @@ To delete a bot message (reply bot message with #del) `
 
 exports.textDonasi = () => {
     return `
-If you enjoyed this bot consider buying me a coffee☕☕ 
-_https://buymeacoff.ee/rishabh053_
+If you enjoyed this bot consider buying me a coffee
+ 
+☕_https://buymeacoff.ee/rishabh053_
 
 Thank you.`
 }

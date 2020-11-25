@@ -65,7 +65,7 @@ module.exports = msgHandler = async (client, message) => {
             await client.sendText(from, menuId.textAdmin())
             break
         case 'donate':
-        case 'donasi':
+        case 'thanks':
             await client.sendText(from, menuId.textDonasi())
             break
         // Sticker Creator
@@ -101,7 +101,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'stickergif':
         case 'gifstiker':
         case 'gifsticker': {
-            if (args.length !== 1) return client.reply(from, 'upload your gif on https://giphy.com/upload and then try with giphy link🙌🙌', id)
+            if (args.length !== 1) return client.reply(from, 'upload your gif on https://giphy.com/upload and then try with giphy link🙌', id)
             if (is.Giphy(url)) {
                 const getGiphyCode = url.match(new RegExp(/(\/|\-)(?:.(?!(\/|\-)))+$/, 'gi'))
                 if (!getGiphyCode) { return client.reply(from, 'Nahi mila bhai 😟', id) }
@@ -128,7 +128,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'tiktok':
             if (args.length !== 1) return client.reply(from, 'Bhosdike tiktoker, nikal yaha se🤬🤬', id)
             if (!is.Url(url) && !url.includes('tiktok.com')) return client.reply(from, 'Galat link hai bhai😐', id)
-            await client.reply(from, `_Abhi bhi bol raha hu tiktok chhor de_ \n\n${menuId.textDonasi()}`, id)
+            await client.reply(from, `_Abhi bhi bol raha hu tiktok chhor de😠😠_ \n\n${menuId.textDonasi()}`, id)
             downloader.tiktok(url).then(async (videoMeta) => {
                 const filename = videoMeta.authorMeta.name + '.mp4'
                 const caps = `*Metadata:*\nUsername: ${videoMeta.authorMeta.name} \nMusic: ${videoMeta.musicMeta.musicName} \nView: ${videoMeta.playCount.toLocaleString()} \nLike: ${videoMeta.diggCount.toLocaleString()} \nComment: ${videoMeta.commentCount.toLocaleString()} \nShare: ${videoMeta.shareCount.toLocaleString()} \nCaption: ${videoMeta.text.trim() ? videoMeta.text : '-'}`
@@ -141,7 +141,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'instagram':
             if (args.length !== 1) return client.reply(from, 'Galat format hai bhai, bot hu insan nahi *#menu* dekh le 😐😐', id)
             if (!is.Url(url) && !url.includes('instagram.com')) return client.reply(from, 'beta tumse na ho payega😂🤣', id)
-            await client.reply(from, `_hum karte hai prabandh aap chinta mat kijiye😇_ \n\n${menuId.textDonasi()}`, id)
+            await client.reply(from, `_ruk video khoj raha hu🔎🔎_ \n\n${menuId.textDonasi()}`, id)
             downloader.insta(url).then(async (data) => {
                 if (data.type == 'GraphSidecar') {
                     if (data.image.length != 0) {
@@ -174,7 +174,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'twitter':
             if (args.length !== 1) return client.reply(from, 'Tumse na ho payega tum *#menu* dekho😂😂 ', id)
             if (!is.Url(url) & !url.includes('twitter.com') || url.includes('t.co')) return client.reply(from, 'Invalid link hai bhai😕😕', id)
-            await client.reply(from, `_hum karte hai prabandh aap chinta mat kijiye😇_ \n\n${menuId.textDonasi()}`, id)
+            await client.reply(from, `_ruk jaa bhai video khoj raha hu🔍🔍_ \n\n${menuId.textDonasi()}`, id)
             downloader.tweet(url).then(async (data) => {
                 if (data.type === 'video') {
                     const content = data.variants.filter(x => x.content_type !== 'application/x-mpegURL').sort((a, b) => b.bitrate - a.bitrate)
@@ -197,7 +197,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'facebook':
             if (args.length !== 1) return client.reply(from, 'Bhai pehle *#menu* dekh le 😒😒', id)
             if (!is.Url(url) && !url.includes('facebook.com')) return client.reply(from, '[Invalid Link]', id)
-            await client.reply(from, `_Ruko thoda sabr karo_ \n\n${menuId.textDonasi()}`, id)
+            await client.reply(from, `_Ruko thoda sabr karo.. video khojta hu🔍_ \n\n${menuId.textDonasi()}`, id)
             downloader.facebook(url).then(async (videoMeta) => {
                 const title = videoMeta.response.title
                 const thumbnail = videoMeta.response.thumbnail
@@ -215,7 +215,7 @@ module.exports = msgHandler = async (client, message) => {
                     .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
                     .catch((err) => console.error(err))
             })
-                .catch((err) => client.reply(from, `Kucch nahi mila yaha fir se bhej🥺🥺`, id))
+                .catch((err) => client.reply(from, `Kucch nahi mila is link mein, fir se bhej🥺🥺`, id))
             break
         // Other Command
         case 'meme':
@@ -254,9 +254,14 @@ module.exports = msgHandler = async (client, message) => {
                 break  
                 
         case 'share':
-                client.reply(from, '❤️To start coversation with me click *https://wa.link/w3syjd* \n\n ❤️To add me in your group *save my number and add me in your group*', id)
+                client.reply(from, '❤️To start coversation with me click *https://wa.link/w3syjd* \n\n❤️To add me in your group *save my number and add me in your group*', id)
                 break  
-
+        case 'yes':
+                client.reply(from, 'Get Lost😑😑', id)
+                break
+        case 'no':
+                client.reply(from, 'Good😆', id)
+                break                
      /*  case 'resi':
             if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
             const kurirs = ['jne', 'pos', 'tiki', 'wahana', 'jnt', 'rpx', 'sap', 'sicepat', 'pcp', 'jet', 'dse', 'first', 'ninja', 'lion', 'idl', 'rex']
@@ -299,7 +304,7 @@ module.exports = msgHandler = async (client, message) => {
             if (!isBotGroupAdmins) return client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)
             if (mentionedJidList.length === 0) return client.reply(from, 'Galat format hai baba😐😐', id)
             if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Fir se kar bhai sahi format me🙄🙄', id)
-            await client.sendTextWithMentions(from, `Kaam ho gaya:\n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')}`)
+            await client.sendTextWithMentions(from, `nikaal diya \n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')} ko`)
             for (let i = 0; i < mentionedJidList.length; i++) {
                 if (groupAdmins.includes(mentionedJidList[i])) return await client.sendText(from, 'bhosdike admin ko hi nikaal de😂😂')
                 await client.removeParticipant(groupId, mentionedJidList[i])
