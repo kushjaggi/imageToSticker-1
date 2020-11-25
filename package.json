@@ -6,15 +6,15 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Yoga Sakti",
+  "author": "Rishabh Raj",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YogaSakti/imageToSticker.git"
+    "url": "https://github.com/Rishabh053/imageToSticker.git"
   },
   "bugs": {
-    "url": "https://github.com/YogaSakti/imageToSticker/issues"
+    "url": "https://github.com/Rishabh053/imageToSticker/issues"
   },
-  "homepage": "https://github.com/YogaSakti/imageToSticker",
+  "homepage": "https://github.com/Rishabh053/imageToSticker",
   "license": "ISC",
   "dependencies": {
     "@open-wa/wa-automate": "^3.0.13",
