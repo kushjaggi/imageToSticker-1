@@ -167,7 +167,7 @@ module.exports = msgHandler = async (client, message) => {
                 .catch((err) => {
                     console.log(err)
                     if (err === 'Not a video') { return client.reply(from, 'Nahi ho paya bhai link invalid hai😕😕', id) }
-                    client.reply(from, 'nahi mila bhai, private account hai😥😥', id)
+                    client.reply(from, 'bhai only instagram reels downlaod kar skta abhi main😥😥', id)
                 })
             break
         case 'twt':
@@ -215,7 +215,7 @@ module.exports = msgHandler = async (client, message) => {
                     .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
                     .catch((err) => console.error(err))
             })
-                .catch((err) => client.reply(from, `Kucch nahi mila is link mein, fir se bhej🥺🥺`, id))
+                .catch((err) => client.reply(from, `bhai thoda facebook ke sath problem hai abhi..🥺🥺`, id))
             break
         // Other Command
         case 'meme':
