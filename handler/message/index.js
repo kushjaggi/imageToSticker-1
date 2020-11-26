@@ -47,19 +47,26 @@ module.exports = msgHandler = async (client, message) => {
 
         switch (command) {
         // Menu and TnC
+        case 'bot':
+            await client.sendText(from,'kyaa dikkat hai bhai?🧐🧐')
+            break
+
         case 'speed':
         case 'ping':
             await client.sendText(from, `Pong!!!!\nSpeed: ${processTime(t, moment())} _Second_`)
             break
+
         case 'tnc':
             await client.sendText(from, menuId.textTnC())
             break
+
         case 'menu':
         case 'help':
             await client.sendText(from, menuId.textMenu(pushname))
                 .then(() => ((isGroupMsg) && (isGroupAdmins)) ? client.sendText(from, 'Menu Admin Group: *#menuadmin*') : null)
             break
         case 'menuadmin':
+        case 'admin':
             if (!isGroupMsg) return client.reply(from, 'Sorry, bhai tu admin nahi hai😞', id)
             if (!isGroupAdmins) return client.reply(from, 'bhai tu admin nahi hai😞', id)
             await client.sendText(from, menuId.textAdmin())
@@ -166,8 +173,8 @@ module.exports = msgHandler = async (client, message) => {
             })
                 .catch((err) => {
                     console.log(err)
-                    if (err === 'Not a video') { return client.reply(from, 'Nahi ho paya bhai link invalid hai😕😕', id) }
-                    client.reply(from, 'bhai only instagram reels downlaod kar skta abhi main😥😥', id)
+                    if (err === 'Not a video') { return client.reply(from, 'Nahi ho paya bhai link invalid hai😕😕.. but you can follow me on insta: https://instagr.am/iam.rishabh', id) }
+                    client.reply(from, 'bhai only instagram reels download kar skta abhi main😥😥', id)
                 })
             break
         case 'twt':
@@ -233,9 +240,24 @@ module.exports = msgHandler = async (client, message) => {
                 await client.reply(from, 'tumse na ho payega #menu dekh lo ek bar😂😂', id)
             }
             break
+        
+        case 'chut':
+        case 'choot':
+        case 'boobs':
+        case 'pussy':
+        case 'gand':
+        case 'gaand':
+        case 'ass':
+        case 'loda':
+        case 'lauda':
+        case 'lawda':                            
+                client.reply(from, 'Chala jaa bhosdike😒😒', id)
+                break    
+
 
         case 'porn':
         case 'pornhub':
+        case 'dani':    
                 client.reply(from, 'Bade harami ho beta😏😏', id)
                 break   
 
@@ -247,7 +269,7 @@ module.exports = msgHandler = async (client, message) => {
 
         case 'mc':
         case 'bc':
-        case 'saale':
+        case 'sala':
         case 'chutiye':
         case 'chutiya':
                 client.reply(from, 'Gaali sunna hai bot se?😑😑', id)
@@ -257,9 +279,14 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, '❤️To start coversation with me click *https://wa.link/w3syjd* \n\n❤️To add me in your group *save my number and add me in your group*', id)
                 break  
         case 'yes':
-                client.reply(from, 'Get Lost😑😑', id)
+        case 'haan':
+        case 'han':
+                client.reply(from, 'Gaali nahi deta main.... Get Lost😑😑', id)
                 break
         case 'no':
+        case 'nahi':
+        case 'na':
+        case 'nhi':
                 client.reply(from, 'Good😆', id)
                 break                
      /*  case 'resi':
@@ -304,9 +331,9 @@ module.exports = msgHandler = async (client, message) => {
             if (!isBotGroupAdmins) return client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)
             if (mentionedJidList.length === 0) return client.reply(from, 'Galat format hai baba😐😐', id)
             if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Fir se kar bhai sahi format me🙄🙄', id)
-            await client.sendTextWithMentions(from, `nikaal diya \n${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')} ko`)
+            await client.sendTextWithMentions(from, `nikaal diya ${mentionedJidList.map(x => `@${x.replace('@c.us', '')}`).join('\n')} ko`)
             for (let i = 0; i < mentionedJidList.length; i++) {
-                if (groupAdmins.includes(mentionedJidList[i])) return await client.sendText(from, 'bhosdike admin ko hi nikaal de😂😂')
+                if (groupAdmins.includes(mentionedJidList[i])) return await client.sendText(from, 'bhosdike admin ko hi nikaal de tu😂😂')
                 await client.removeParticipant(groupId, mentionedJidList[i])
             }
             break

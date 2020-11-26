@@ -36,7 +36,6 @@ Will return video tiktok.
 2. *#fb* _<post / video url>_
 Will return the Facebook video download link.
 
-
 3. *#ig* _<post / video url>_
 Will return the Instagram video download link.
 
@@ -75,8 +74,10 @@ To delete a bot message (reply bot message with #del) `
 exports.textDonasi = () => {
     return `
 If you enjoyed this bot consider buying me a coffee
- 
 ☕_https://buymeacoff.ee/rishabh053_
+
+You can follow me on Instagram
+❤️_https://instagr.am/iam.rishabh_
 
 Thank you.`
 }

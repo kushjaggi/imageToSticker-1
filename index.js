@@ -43,9 +43,9 @@ const start = (client = new Client()) => {
     })
 
     
-    client.onIncomingCall((callData) => {
-        // client.contactBlock(callData.peerJid)
-    })
+    client.onIncomingCall(async call=>{
+        await client.sendText(call.peerJid._serialized, 'Bhai bot se kya baat karega meko DM krle: http://instagr.am/iam.rishabh');
+    });
 }
 
 const options = {
