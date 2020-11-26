@@ -9,7 +9,12 @@ By using this bot you accept that you are not involved in:
         • forest burning / deforestation
         • hate speech or discrimination based on age, sex, gender identity, race, sexuality, religion, nationality
     
-Best regards, Rishabh.`
+Best regards, Rishabh.
+
+You can follow this bot maker on Instagram
+❤️https://instagr.am/iam.rishabh`
+
+
 }
 
 exports.textMenu = (pushname) => {
@@ -28,28 +33,33 @@ To change the image from the url to a sticker.
 3. *#gifsticker* _<Giphy URL>_ / *#stickergif* _<Giphy URL>_
 To turn a gif into a sticker (upload your GIF on giphy.com/upload and share the link)
 
-Downloader (Only Videos)
+Downloader (Only Videos):
 
-1. *#tiktok* _<post / video url>_
+4. *#tiktok* _<post / video url>_
 Will return video tiktok.
 
-2. *#fb* _<post / video url>_
+5. *#fb* _<post / video url>_
 Will return the Facebook video download link.
 
-3. *#ig* _<post / video url>_
+6. *#ig* _<post / video url>_
 Will return the Instagram video download link.
 
-4. *#twt* _<post / video url>_
+7. *#twt* _<post / video url>_
 Will return the Twitter video download link.
 
-5. *#tnc*
+Extras:
+
+8. *#tnc*
 Displays Bot Terms and Conditions.
 
-6. *#share*
+9. *#share*
 Share this bot with your Group and Friends
 
-7. *#meme* _<upper text>_ | _<lower text>_
-Will Return the Meme with your text 
+10. *#meme* _<upper text>_ | _<lower text>_
+send image and it will return the Meme with your text
+
+11. *#corona* or *covid*
+To see the lastest COVID 19 report of India
 
 ☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`

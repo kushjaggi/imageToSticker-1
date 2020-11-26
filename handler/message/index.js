@@ -49,6 +49,7 @@ module.exports = msgHandler = async (client, message) => {
         switch (command) {
             // Menu and TnC
             case 'corona':
+            case 'covid':    
                 covid().then((result) => client.sendText(from, result))
                 break
                 
@@ -78,8 +79,12 @@ module.exports = msgHandler = async (client, message) => {
                 break
             case 'donate':
             case 'thanks':
+            case 'thankyou':
+            case 'iloveyou':
+            case 'ok':        
                 await client.sendText(from, menuId.textDonasi())
                 break
+                
             // Sticker Creator
             case 'sticker':
             case 'stickers':
