@@ -2,10 +2,11 @@ require('dotenv').config()
 const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Jakarta').locale('id')
-const { downloader, cekResi, removebg, urlShortener, meme, translate, getLocationData } = require('../../lib')
+const { downloader, cekResi, removebg, urlShortener, meme, translate, covid, getLocationData } = require('../../lib')
 const { msgFilter, color, processTime, is } = require('../../utils')
 const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
+
 
 const { menuId, menuEn } = require('./text')
 
@@ -48,28 +49,16 @@ module.exports = msgHandler = async (client, message) => {
         switch (command) {
             // Menu and TnC
             case 'corona':
-                const URL = "http://corona.coollabs.work"
-                const data = await fetch(`${URL}/country/80`)
-                const parsed = await data.json()
-                const { Country_Region, Confirmed, Deaths, Recovered, Active } = parsed
-                const content = `*Current COVID-19 Data*
-                *Country:* ${Country_Region}
-                *Confirmed:* ${Confirmed}
-                *Deaths:* ${Deaths}
-                *Recovered:* ${Recovered}
-                *Active:* ${Active}
-                *सावधान रहें सतर्क रहें😷😷*`
-                client.reply(from, content, id)
-                console.log("Sent Corona Virus!")
+                covid().then((result) => client.sendText(from, result))
                 break
-
+                
             case 'bot':
                 await client.reply(from, 'kyaa dikkat hai bhai?🧐🧐')
                 break
 
             case 'speed':
             case 'ping':
-                await client.sendText(from, `Pong!!!!\nSpeed: ${processTime(t, moment())} _Second_`)
+                await client.reply(from, `Pong!!!!\nSpeed: ${processTime(t, moment())} _Second_`)
                 break
 
             case 'tnc':
@@ -305,13 +294,13 @@ module.exports = msgHandler = async (client, message) => {
             case 'nhi':
                 client.reply(from, 'Good😆', id)
                 break
-            /*  case 'resi':
+              case 'resi':
                    if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
                    const kurirs = ['jne', 'pos', 'tiki', 'wahana', 'jnt', 'rpx', 'sap', 'sicepat', 'pcp', 'jet', 'dse', 'first', 'ninja', 'lion', 'idl', 'rex']
                    if (!kurirs.includes(args[0])) return client.sendText(from, `Maaf, jenis ekspedisi pengiriman tidak didukung layanan ini hanya mendukung ekspedisi pengiriman ${kurirs.join(', ')} Tolong periksa kembali.`)
                    console.log('Memeriksa No Resi', args[1], 'dengan ekspedisi', args[0])
                    cekResi(args[0], args[1]).then((result) => client.sendText(from, result))
-                   break   */
+                   break   
 
 
             case 'translate':
