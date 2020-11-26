@@ -245,8 +245,8 @@ module.exports = msgHandler = async (client, message) => {
         case 'choot':
         case 'boobs':
         case 'pussy':
-        case 'gand':
-        case 'gaand':
+        case 'gandu':
+        case 'gaandu':
         case 'ass':
         case 'loda':
         case 'lauda':
@@ -281,7 +281,7 @@ module.exports = msgHandler = async (client, message) => {
         case 'yes':
         case 'haan':
         case 'han':
-                client.reply(from, 'Gaali nahi deta main.... Get Lost😑😑', id)
+                client.reply(from, 'lodu Lalit🤣🤣', id)
                 break
         case 'no':
         case 'nahi':
