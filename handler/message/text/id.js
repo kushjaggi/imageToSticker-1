@@ -79,8 +79,8 @@ exports.textDonasi = () => {
 If you enjoyed this bot consider buying me a coffee
 ☕_https://buymeacoff.ee/rishabh053_
 
-You can follow me on Instagram
-❤️_https://instagr.am/iam.rishabh_
+You can follow me maker on Instagram
+❤️https://instagr.am/iam.rishabh
 
 Thank you.`
 }
