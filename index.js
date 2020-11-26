@@ -44,7 +44,7 @@ const start = (client = new Client()) => {
 
     
     client.onIncomingCall(async call=>{
-        await client.sendText(call.peerJid._serialized, 'Bhai bot se kya baat karega meko DM krle: http://instagr.am/iam.rishabh');
+        await client.sendText(call.peerJid._serialized, 'Bhai bot se kya baat karega bot maker ko DM krle: http://instagr.am/iam.rishabh');
     });
 }
 

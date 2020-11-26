@@ -48,6 +48,9 @@ Displays Bot Terms and Conditions.
 6. *#share*
 Share this bot with your Group and Friends
 
+7. *#meme* _<upper text> | <lower text>_
+Send your image with caption _#meme upper text | lower text_ and see the magic 
+
 ☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`
 

@@ -146,7 +146,7 @@ module.exports = msgHandler = async (client, message) => {
             break
         case 'ig':
         case 'instagram':
-            if (args.length !== 1) return client.reply(from, 'Galat format hai bhai, bot hu insan nahi *#menu* dekh le 😐😐', id)
+            if (args.length !== 1) return client.reply(from, 'ye to galat format hai but koi nahi you can follow this bot maker on IG: https://instagr.am/iam.rishabh', id)
             if (!is.Url(url) && !url.includes('instagram.com')) return client.reply(from, 'beta tumse na ho payega😂🤣', id)
             await client.reply(from, `_ruk video khoj raha hu🔎🔎_ \n\n${menuId.textDonasi()}`, id)
             downloader.insta(url).then(async (data) => {
