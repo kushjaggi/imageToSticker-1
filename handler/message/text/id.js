@@ -58,7 +58,7 @@ Share this bot with your Group and Friends
 10. *#meme* _<upper text>_ | _<lower text>_
 send image and it will return the Meme with your text
 
-11. *#corona* or *covid*
+11. *#corona* or *#covid*
 To see the lastest COVID 19 report of India
 
 ☕ _https://buymeacoff.ee/rishabh053_

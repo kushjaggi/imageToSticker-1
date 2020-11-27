@@ -2,7 +2,7 @@ require('dotenv').config()
 const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Jakarta').locale('id')
-const { downloader, cekResi, removebg, urlShortener, meme, translate, covid, getLocationData } = require('../../lib')
+const { downloader, cekResi, removebg, urlShortener, meme, translate, covid, getLocationData, live } = require('../../lib')
 const { msgFilter, color, processTime, is } = require('../../utils')
 const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
@@ -48,6 +48,10 @@ module.exports = msgHandler = async (client, message) => {
 
         switch (command) {
             // Menu and TnC
+            case 'cricket':
+                live().then((result) => client.sendText(from, result))
+                break
+
             case 'corona':
             case 'covid':    
                 covid().then((result) => client.sendText(from, result))
