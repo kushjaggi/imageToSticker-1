@@ -59,7 +59,8 @@ module.exports = msgHandler = async (client, message) => {
                 break
                 
             case 'bot':
-                await client.reply(from, 'kyaa dikkat hai bhai?🧐🧐')
+            case 'hi':    
+                client.reply(from, 'kyaa dikkat hai bhai?🧐🧐', id)
                 break
 
             case 'speed':
