@@ -61,6 +61,9 @@ send image and it will return the Meme with your text
 11. *#corona* or *#covid*
 To see the lastest COVID 19 report of India
 
+12. *#cricket*
+To See Todays Live Score
+
 ☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`
 

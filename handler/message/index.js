@@ -49,6 +49,7 @@ module.exports = msgHandler = async (client, message) => {
         switch (command) {
             // Menu and TnC
             case 'cricket':
+            case 'live':    
                 live().then((result) => client.sendText(from, result))
                 break
 
