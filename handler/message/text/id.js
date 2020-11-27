@@ -31,7 +31,7 @@ To convert an image into a sticker, send the image with the caption #sticker or 
 To change the image from the url to a sticker.
 
 3. *#gifsticker* _<Giphy URL>_ / *#stickergif* _<Giphy URL>_
-To turn a gif into a sticker (upload your GIF on giphy.com/upload and share the link)
+upload your GIF on giphy.com/upload and send the link
 
 Downloader (Only Videos):
 
