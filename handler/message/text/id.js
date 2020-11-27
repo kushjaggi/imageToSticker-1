@@ -1,5 +1,7 @@
 exports.textTnC = () => {
     return `
+*Don't call otherwise you'll be blocked*
+
 By using this bot you accept that you are not involved in:
         • sex / human trafficking
         • gambling
@@ -11,7 +13,7 @@ By using this bot you accept that you are not involved in:
     
 Best regards, Rishabh.
 
-You can follow this bot maker on Instagram
+You can follow this bot maker on IG
 ❤️https://instagr.am/iam.rishabh`
 
 
