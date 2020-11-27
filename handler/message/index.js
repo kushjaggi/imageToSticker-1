@@ -1,8 +1,8 @@
 require('dotenv').config()
 const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const moment = require('moment-timezone')
-moment.tz.setDefault('Asia/Jakarta').locale('id')
-const { downloader, cekResi, removebg, urlShortener, meme, translate, covid, getLocationData, live } = require('../../lib')
+moment.tz.setDefault('Asia/Kolkata').locale('id')
+const { downloader, cekResi, removebg, urlShortener, meme, translate, covid, live } = require('../../lib')
 const { msgFilter, color, processTime, is } = require('../../utils')
 const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
@@ -76,17 +76,20 @@ module.exports = msgHandler = async (client, message) => {
                 await client.sendText(from, menuId.textMenu(pushname))
                     .then(() => ((isGroupMsg) && (isGroupAdmins)) ? client.sendText(from, 'Menu Admin Group: *#menuadmin*') : null)
                 break
+
             case 'menuadmin':
             case 'admin':
                 if (!isGroupMsg) return client.reply(from, 'Sorry, bhai tu admin nahi hai😞', id)
                 if (!isGroupAdmins) return client.reply(from, 'bhai tu admin nahi hai😞', id)
                 await client.sendText(from, menuId.textAdmin())
                 break
+
             case 'donate':
             case 'thanks':
             case 'thankyou':
             case 'iloveyou':
-            case 'ok':        
+            case 'ok':
+            case 'love':            
                 await client.sendText(from, menuId.textDonasi())
                 break
                 
@@ -304,14 +307,6 @@ module.exports = msgHandler = async (client, message) => {
             case 'nhi':
                 client.reply(from, 'Good😆', id)
                 break
-              case 'resi':
-                   if (args.length !== 2) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-                   const kurirs = ['jne', 'pos', 'tiki', 'wahana', 'jnt', 'rpx', 'sap', 'sicepat', 'pcp', 'jet', 'dse', 'first', 'ninja', 'lion', 'idl', 'rex']
-                   if (!kurirs.includes(args[0])) return client.sendText(from, `Maaf, jenis ekspedisi pengiriman tidak didukung layanan ini hanya mendukung ekspedisi pengiriman ${kurirs.join(', ')} Tolong periksa kembali.`)
-                   console.log('Memeriksa No Resi', args[1], 'dengan ekspedisi', args[0])
-                   cekResi(args[0], args[1]).then((result) => client.sendText(from, result))
-                   break   
-
 
             case 'translate':
                 if (args.length != 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
@@ -321,23 +316,6 @@ module.exports = msgHandler = async (client, message) => {
                     .then((result) => client.sendText(from, result))
                     .catch(() => client.sendText(from, '[Error]'))
                 break
-
-            /*  case 'ceklok':
-              case 'ceklokasi':
-                  if (!quotedMsg || quotedMsg.type !== 'location') return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-                  console.log(`Request Status Zona Penyebaran Covid-19 (${quotedMsg.lat}, ${quotedMsg.lng}).`)
-                  const zoneStatus = await getLocationData(quotedMsg.lat, quotedMsg.lng)
-                  if (zoneStatus.kode !== 200) client.sendText(from, 'Maaf, Terjadi error ketika memeriksa lokasi yang anda kirim.')
-                  let data = ''
-                  for (let i = 0; i < zoneStatus.data.length; i++) {
-                      const { zone, region } = zoneStatus.data[i]
-                      const _zone = zone == 'green' ? 'Hijau* (Aman) \n' : zone == 'yellow' ? 'Kuning* (Waspada) \n' : 'Merah* (Bahaya) \n'
-                      data += `${i + 1}. Kel. *${region}* Berstatus *Zona ${_zone}`
-                  }
-                  const text = `*CEK LOKASI PENYEBARAN COVID-19*\nHasil pemeriksaan dari lokasi yang anda kirim adalah *${zoneStatus.status}* ${zoneStatus.optional}\n\nInformasi lokasi terdampak disekitar anda:\n${data}`
-                  client.sendText(from, text)
-                  break */
-
 
             // Group Commands (group admin only)
             case 'kick':

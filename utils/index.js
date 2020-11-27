@@ -2,7 +2,7 @@
 const chalk = require('chalk')
 const moment = require('moment-timezone')
 const updateJson = require('update-json-file')
-moment.tz.setDefault('Asia/Jakarta').locale('id')
+moment.tz.setDefault('Asia/Kolkata').locale('id')
 
 // Color
 const color = (text, color) => {
