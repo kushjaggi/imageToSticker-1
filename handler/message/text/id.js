@@ -8,8 +8,7 @@ By using this bot you accept that you are not involved in:
         • harmful addictive behavior
         • crime
         • violence 
-        • forest burning / deforestation
-        • hate speech or discrimination based on age, sex, gender identity, race, sexuality, religion, nationality
+        • hate speech 
     
 Best regards, Rishabh.
 
