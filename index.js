@@ -43,9 +43,9 @@ const start = (client = new Client()) => {
     })
 
     
-    client.onIncomingCall(async call=>{
-        await client.sendText(id, 'Bhai bot se kya baat karega bot maker ko DM krle: http://instagr.am/iam.rishabh');
-    });
+    client.onIncomingCall((callData) => {
+          client.contactBlock(callData.peerJid)
+    })
 }
 
 const options = {
