@@ -58,6 +58,12 @@ module.exports = msgHandler = async (client, message) => {
                 covid().then((result) => client.sendText(from, result))
                 break
                 
+                
+            case 'nudes':  
+                const ImageBase64 = await meme.random()
+                client.sendFile(from, ImageBase64, 'image.png', '', null, true)
+                break    
+                
             case 'bot':
             case 'hi':    
                 client.reply(from, 'kyaa dikkat hai bhai?🧐🧐', id)
