@@ -65,6 +65,9 @@ To see the lastest COVID 19 report of India
 12. *#cricket*
 To See Todays Live Score
 
+13. *#add* 
+To add your custom commands
+
 ☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`
 

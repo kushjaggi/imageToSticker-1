@@ -297,6 +297,12 @@ module.exports = msgHandler = async (client, message) => {
             case 'share':
                 client.reply(from, '❤️To start coversation with me click *https://wa.link/w3syjd* \n\n❤️To add me in your group *save my number and add me in your group*', id)
                 break
+            
+            case 'add':
+            case 'feedback':    
+                client.reply(from, 'If you want your commands to be added in the bot write it here and i will add it: https://bit.ly/wa-stickerbot', id)
+                break    
+                
             case 'yes':
             case 'haan':
             case 'han':
