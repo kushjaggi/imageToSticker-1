@@ -45,27 +45,24 @@ Will return the Facebook video download link.
 6. *#ig* _<post / video url>_
 Will return the Instagram video download link.
 
-7. *#twt* _<post / video url>_
-Will return the Twitter video download link.
-
 Extras:
 
-8. *#tnc*
+7. *#tnc*
 Displays Bot Terms and Conditions.
 
-9. *#share*
+8. *#share*
 Share this bot with your Group and Friends
 
-10. *#meme* _<upper text>_ | _<lower text>_
+9. *#meme* _<upper text>_ | _<lower text>_
 send image and it will return the Meme with your text
 
-11. *#corona* or *#covid*
+10. *#corona* or *#covid*
 To see the lastest COVID 19 report of India
 
-12. *#cricket*
+11. *#cricket*
 To See Todays Live Score
 
-13. *#add* 
+12. *#add* 
 To add your custom commands
 
 ☕ _https://buymeacoff.ee/rishabh053_
