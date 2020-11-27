@@ -18,7 +18,7 @@ const start = (client = new Client()) => {
     // listening on message
     client.onMessage((message) => {
         // Cut message Cache if cache more than 3K
-        client.getAmountOfLoadedMessages().then((msg) => (msg >= 3000) && client.cutMsgCache())
+        client.getAmountOfLoadedMessages().then((msg) => (msg >= 1000) && client.cutMsgCache())
         // Message Handler
         msgHandler(client, message)
     })
@@ -44,7 +44,7 @@ const start = (client = new Client()) => {
 
     
     client.onIncomingCall(async call=>{
-        await client.sendText(call.peerJid._serialized, 'Bhai bot se kya baat karega bot maker ko DM krle: http://instagr.am/iam.rishabh');
+        await client.sendText(id, 'Bhai bot se kya baat karega bot maker ko DM krle: http://instagr.am/iam.rishabh');
     });
 }
 
