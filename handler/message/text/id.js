@@ -13,7 +13,7 @@ By using this bot you accept that you are not involved in:
     
 Best regards, Rishabh.
 
-You can follow this bot maker on IG
+*You can follow this bot maker on IG*
 ❤️https://instagr.am/iam.rishabh`
 
 
