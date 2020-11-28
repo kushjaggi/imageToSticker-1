@@ -37,10 +37,10 @@ const start = (client = new Client()) => {
             }))
 
     
-    client.onGlobalParicipantsChanged(async (event) => {
+   /* client.onGlobalParicipantsChanged(async (event) => {
         const host = await client.getHostNumber() + '@c.us'
         if (event.action === 'add' && event.who !== host) client.sendTextWithMentions(event.chat, `Hello, @${event.who.replace('@c.us', '')} Swagat hai aapka✨`)
-    })
+    }) */
 
     
     client.onIncomingCall((callData) => {
