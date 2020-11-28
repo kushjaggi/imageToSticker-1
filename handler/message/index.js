@@ -3,7 +3,7 @@ const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const  axios  =  require ( 'axios' )
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Kolkata').locale('id')
-const { downloader, cekResi, removebg, urlShortener, meme, translate, covid, live } = require('../../lib')
+const { downloader, cekResi, removebg, urlShortener, meme, translate, covid } = require('../../lib')
 const { msgFilter, color, processTime, is } = require('../../utils')
 const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
@@ -61,7 +61,7 @@ module.exports = msgHandler = async (client, message) => {
                 break
 
             case 'test':
-                await client.sendStickerfromUrl(from, 'https://i.imgur.com/KL02AKC.png', 'test.png' )
+                await client.reply(from, client.sendStickerfromUrl(from, 'https://i.imgur.com/te1cv6S.png', 'test.png' ), id)
                 break    
                 
             case 'sendnudes':  
