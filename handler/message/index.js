@@ -60,9 +60,9 @@ module.exports = msgHandler = async (client, message) => {
                 break
                 
                 
-            case 'nudes':  
-                const response = await axios.get('https://meme-api.herokuapp.com/gimme/wholesomeanimemes');
-                const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
+            case 'sendnudes':  
+                const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndiansGoneWild');
+                const {title, url} = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
                 break    
                 
