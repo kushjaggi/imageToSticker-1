@@ -60,7 +60,8 @@ module.exports = msgHandler = async (client, message) => {
                 break
              
             case 'test':
-                await client.sendStickerfromUrl(from, 'https://i.imgflip.com/33ira3.jpg', 'test.jpg' )    
+                await client.sendStickerfromUrl(from, 'https://i.imgur.com/KL02AKC.png', 'test.png' )
+                break    
                 
             case 'sendnudes':  
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndiansGoneWild');
@@ -100,7 +101,8 @@ module.exports = msgHandler = async (client, message) => {
             case 'thankyou':
             case 'iloveyou':
             case 'ok':
-            case 'love':            
+            case 'love':
+            case 'rishabh'                
                 await client.sendText(from, menuId.textDonasi())
                 break
                 
