@@ -106,6 +106,13 @@ module.exports = msgHandler = async (client, message) => {
                 await client.sendText(from, menuId.textDonasi())
                 break
                 
+            case 'animate':
+             if(isMedia){
+                const mediaData = await decryptMedia(encryptMedia, uaOverride)
+                client.sendVideoAsGif(from, mediaData)
+             }
+                break
+
             // Sticker Creator
             case 'sticker':
             case 'stickers':
