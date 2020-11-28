@@ -65,8 +65,8 @@ module.exports = msgHandler = async (client, message) => {
                 break
             
             case 'meme':
-                const ans = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
-                const { url } = ans.data
+                const response1 = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
+                const { url } = response1.data
                 await client.sendFileFromUrl(from, `${url}`, 'meme.jpg')
                 break    
                 
