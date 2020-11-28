@@ -57,7 +57,7 @@ module.exports = msgHandler = async (client, message) => {
 
 
             case 'fiercekimummy':
-                client.reply(from, 'bohot hot hai bhai', id)
+                client.reply(from, 'bohot hot hai bhai👉😘', id)
                 break
 
             case 'test':
