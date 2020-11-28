@@ -102,7 +102,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'iloveyou':
             case 'ok':
             case 'love':
-            case 'rishabh'                
+            case 'rishabh':                
                 await client.sendText(from, menuId.textDonasi())
                 break
                 
