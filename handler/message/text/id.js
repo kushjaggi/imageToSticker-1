@@ -1,6 +1,6 @@
 exports.textTnC = () => {
     return `
-*Don't call otherwise you'll be blocked*
+*Don't call otherwise you'll be blocked automatically*
 
 By using this bot you accept that you are not involved in:
         • sex / human trafficking
@@ -34,32 +34,25 @@ To change the image from the url to a sticker.
 3. *#gifsticker* _<Giphy URL>_ / *#stickergif* _<Giphy URL>_
 upload your GIF on giphy.com/upload and send the link
 
-Downloader (Only Videos):
+4. *#ig* _<reels video url>_
+Will return the Instagram Reels download link.
 
-4. *#tiktok* _<post / video url>_
-Will return video tiktok.
+5. *#meme*
+Will return a random meme
 
-5. *#fb* _<post / video url>_
-Will return the Facebook video download link.
-
-6. *#ig* _<post / video url>_
-Will return the Instagram video download link.
-
-Extras:
-
-7. *#tnc*
-Displays Bot Terms and Conditions.
-
-8. *#share*
-Share this bot with your Group and Friends
-
-9. *#meme* _<upper text>_ | _<lower text>_
+6. *#meme* _<upper text>_ | _<lower text>_
 send image and it will return the Meme with your text
 
-10. *#corona* or *#covid*
+7. *#share*
+Share this bot with your Group and Friends
+
+8. *#corona* or *#covid*
 To see the lastest COVID 19 report of India
 
-11. *#add* 
+9. *#tnc*
+Displays Bot Terms and Conditions.
+
+10. *#add* 
 To add your custom commands
 
 ☕ _https://buymeacoff.ee/rishabh053_
@@ -79,10 +72,7 @@ To remove members from the group (can be more than 1).
 To promote members to group admins.
 
 3. *#demote* @user
-To demote Group admins.
-
-4. *#del*
-To delete a bot message (reply bot message with #del) `
+To demote Group admins.`
 }
 
 exports.textDonasi = () => {

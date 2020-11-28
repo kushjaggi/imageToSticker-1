@@ -3,13 +3,12 @@ const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const  axios  =  require ( 'axios' )
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Kolkata').locale('id')
-const { downloader, cekResi, removebg, urlShortener, meme, translate, covid } = require('../../lib')
+const { downloader, removebg, meme, translate, covid } = require('../../lib')
 const { msgFilter, color, processTime, is } = require('../../utils')
-const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
 
 
-const { menuId, menuEn } = require('./text')
+const { menuId} = require('./text')
 
 module.exports = msgHandler = async (client, message) => {
     try {
@@ -39,7 +38,6 @@ module.exports = msgHandler = async (client, message) => {
         // [BETA] Avoid Spam Message
         if (isCmd && msgFilter.isFiltered(from) && !isGroupMsg) { return console.log(color('[SPAM]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname)) }
         if (isCmd && msgFilter.isFiltered(from) && isGroupMsg) { return console.log(color('[SPAM]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname), 'in', color(name || formattedTitle)) }
-        //
         if (!isCmd && !isGroupMsg) { return console.log('[RECV]', color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), 'Message from', color(pushname)) }
         if (!isCmd && isGroupMsg) { return console.log('[RECV]', color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), 'Message from', color(pushname), 'in', color(name || formattedTitle)) }
         if (isCmd && !isGroupMsg) { console.log(color('[EXEC]'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname)) }
@@ -58,15 +56,17 @@ module.exports = msgHandler = async (client, message) => {
 
             case 'fiercekimummy':
                 client.reply(from, 'bohot hot hai bhai👉😘', id)
-                break
-
-            case 'test':
-                await client.reply(from, client.sendStickerfromUrl(from, 'https://i.imgur.com/te1cv6S.png', 'test.png' ), id)
                 break    
                 
             case 'sendnudes':  
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndiansGoneWild');
                 const {title, url} = response.data
+                await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
+                break
+            
+            case 'meme':
+                const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
+                const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
                 break    
                 
@@ -173,17 +173,9 @@ module.exports = msgHandler = async (client, message) => {
             }
             // Video Downloader
             case 'tiktok':
-                if (args.length !== 1) return client.reply(from, 'Bhosdike tiktoker, nikal yaha se🤬🤬', id)
-                if (!is.Url(url) && !url.includes('tiktok.com')) return client.reply(from, 'Galat link hai bhai😐', id)
-                await client.reply(from, `_Abhi bhi bol raha hu tiktok chhor de😠😠_ \n\n${menuId.textDonasi()}`, id)
-                downloader.tiktok(url).then(async (videoMeta) => {
-                    const filename = videoMeta.authorMeta.name + '.mp4'
-                    const caps = `*Metadata:*\nUsername: ${videoMeta.authorMeta.name} \nMusic: ${videoMeta.musicMeta.musicName} \nView: ${videoMeta.playCount.toLocaleString()} \nLike: ${videoMeta.diggCount.toLocaleString()} \nComment: ${videoMeta.commentCount.toLocaleString()} \nShare: ${videoMeta.shareCount.toLocaleString()} \nCaption: ${videoMeta.text.trim() ? videoMeta.text : '-'}`
-                    await client.sendFileFromUrl(from, videoMeta.url, filename, videoMeta.NoWaterMark ? caps : `⚠ Videos without watermark are not available. \n\n${caps}`, '', { headers: { 'User-Agent': 'okhttp/4.5.0', referer: 'https://www.tiktok.com/' } }, true)
-                        .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
-                        .catch((err) => console.error(err))
-                }).catch(() => client.reply(from, 'Bhosdike tiktoker, nikal yaha se🤬🤬', id))
+                client.reply(from, 'Bhosdike tiktoker, nikal yaha se🤬🤬', id)
                 break
+
             case 'ig':
             case 'instagram':
                 if (args.length !== 1) return client.reply(from, 'ye to galat format hai but koi nahi you can follow this bot maker on IG: https://instagr.am/iam.rishabh', id)
@@ -217,55 +209,8 @@ module.exports = msgHandler = async (client, message) => {
                         client.reply(from, 'bhai only instagram reels download kar skta abhi main😥😥', id)
                     })
                 break
-            case 'twt':
-            case 'twitter':
-                if (args.length !== 1) return client.reply(from, 'Tumse na ho payega tum *#menu* dekho😂😂 ', id)
-                if (!is.Url(url) & !url.includes('twitter.com') || url.includes('t.co')) return client.reply(from, 'Invalid link hai bhai😕😕', id)
-                await client.reply(from, `_ruk jaa bhai video khoj raha hu🔍🔍_ \n\n${menuId.textDonasi()}`, id)
-                downloader.tweet(url).then(async (data) => {
-                    if (data.type === 'video') {
-                        const content = data.variants.filter(x => x.content_type !== 'application/x-mpegURL').sort((a, b) => b.bitrate - a.bitrate)
-                        const result = await urlShortener(content[0].url)
-                        console.log('Shortlink: ' + result)
-                        await client.sendFileFromUrl(from, content[0].url, 'video.mp4', `Link Download: ${result} \n\nProcessed for ${processTime(t, moment())} _Second_`, null, null, true)
-                            .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
-                            .catch((err) => console.error(err))
-                    } else if (data.type === 'photo') {
-                        for (let i = 0; i < data.variants.length; i++) {
-                            await client.sendFileFromUrl(from, data.variants[i], data.variants[i].split('/media/')[1], '', null, null, true)
-                                .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
-                                .catch((err) => console.error(err))
-                        }
-                    }
-                })
-                    .catch(() => client.sendText(from, 'Koi media hi nahi hai is link me kaha se du? 😶😶'))
-                break
-            case 'fb':
-            case 'facebook':
-                if (args.length !== 1) return client.reply(from, 'Bhai pehle *#menu* dekh le 😒😒', id)
-                if (!is.Url(url) && !url.includes('facebook.com')) return client.reply(from, '[Invalid Link]', id)
-                await client.reply(from, `_Ruko thoda sabr karo.. video khojta hu🔍_ \n\n${menuId.textDonasi()}`, id)
-                downloader.facebook(url).then(async (videoMeta) => {
-                    const title = videoMeta.response.title
-                    const thumbnail = videoMeta.response.thumbnail
-                    const links = videoMeta.response.links
-                    const shorts = []
-                    for (let i = 0; i < links.length; i++) {
-                        const shortener = await urlShortener(links[i].url)
-                        console.log('Shortlink: ' + shortener)
-                        links[i].short = shortener
-                        shorts.push(links[i])
-                    }
-                    const link = shorts.map((x) => `${x.resolution} Quality: ${x.short}`)
-                    const caption = `Text: ${title} \n\nLink Download: \n${link.join('\n')} \n\nProcessed for ${processTime(t, moment())} _Second_`
-                    await client.sendFileFromUrl(from, thumbnail, 'videos.mp4', caption, null, null, true)
-                        .then((serialized) => console.log(`Successfully sending files with id: ${serialized} processed during ${processTime(t, moment())}`))
-                        .catch((err) => console.error(err))
-                })
-                    .catch((err) => client.reply(from, `bhai thoda facebook ke sath problem hai abhi..🥺🥺`, id))
-                break
-            // Other Command
-            case 'meme':
+            
+            case 'makememe':
                 if ((isMedia || isQuotedImage) && args.length >= 2) {
                     const top = arg.split('|')[0]
                     const bottom = arg.split('|')[1]
@@ -298,6 +243,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'porn':
             case 'pornhub':
             case 'dani':
+            case 'sunny':    
                 client.reply(from, 'Bade harami ho beta😏😏', id)
                 break
 
@@ -336,14 +282,6 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, 'Good😆', id)
                 break
 
-            case 'translate':
-                if (args.length != 1) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-                if (!quotedMsg) return client.reply(from, 'Sorry, the message format is wrong, please check the menu. [Wrong Format]', id)
-                const quoteText = quotedMsg.type == 'chat' ? quotedMsg.body : quotedMsg.type == 'image' ? quotedMsg.caption : ''
-                translate(quoteText, args[0])
-                    .then((result) => client.sendText(from, result))
-                    .catch(() => client.sendText(from, '[Error]'))
-                break
 
             // Group Commands (group admin only)
             case 'kick':
@@ -358,6 +296,7 @@ module.exports = msgHandler = async (client, message) => {
                     await client.removeParticipant(groupId, mentionedJidList[i])
                 }
                 break
+
             case 'promote':
                 if (!isGroupMsg) return await client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
                 if (!isGroupAdmins) return await client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
@@ -368,6 +307,7 @@ module.exports = msgHandler = async (client, message) => {
                 await client.promoteParticipant(groupId, mentionedJidList[0])
                 await client.sendTextWithMentions(from, ` @${mentionedJidList[0].replace('@c.us', '')} ab admin hai`)
                 break
+
             case 'demote':
                 if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
                 if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
@@ -383,29 +323,18 @@ module.exports = msgHandler = async (client, message) => {
                 if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu😂😂', id)
                 client.sendText(from, 'Bhaga diye naa.. jaa raha hu😭😭').then(() => client.leaveGroup(groupId))
                 break
-            case 'del':
-                if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu🤣🤣', id)
-                if (!quotedMsg) return client.reply(from, 'Format galat hai bhai message pe reply kar ke bol🙄🙄', id)
-                if (!quotedMsgObj.fromMe) return client.reply(from, 'Format galat hai bhai message pe reply kar ke bol🙄🙄', id)
-                client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
-                break
-            case 'tagall':
-            case 'everyone':
-                /**
-                * This is Premium feature.
-                * Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information.
-                */
-                client.reply(from, 'free me ye nahi milega🤭', id)
-                break
+
+
             case 'botstat': {
                 const loadedMsg = await client.getAmountOfLoadedMessages()
                 const chatIds = await client.getAllChatIds()
                 const groups = await client.getAllGroups()
                 client.sendText(from, `Status :\n- *${loadedMsg}* Loaded Messages\n- *${groups.length}* Group Chats\n- *${chatIds.length - groups.length}* Personal Chats\n- *${chatIds.length}* Total Chats`)
                 break
+                
             }
             default:
-                client.reply(from, 'Galat command hai bhai, *#menu* type krle, list ke liye😒😒', id)
+                client.sendStickerfromUrlAsReply(from, 'https://i.imgur.com/N6uXNpD.png', 'test.png', id)
                 console.log(color('[ERROR]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), 'Unregistered Command from', color(pushname))
                 break
         }

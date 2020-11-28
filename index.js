@@ -36,10 +36,10 @@ const start = (client = new Client()) => {
                 }
             }))
 
-    // listen paricipant event on group (wellcome message)
+    
     client.onGlobalParicipantsChanged(async (event) => {
-        // const host = await client.getHostNumber() + '@c.us'
-        // if (event.action === 'add' && event.who !== host) client.sendTextWithMentions(event.chat, `Hello, Welcome to the group @${event.who.replace('@c.us', '')} \n\nHave fun with us✨`)
+        const host = await client.getHostNumber() + '@c.us'
+        if (event.action === 'add' && event.who !== host) client.sendTextWithMentions(event.chat, `Hello, Welcome to @${event.who.replace('@c.us', '')} \nHave fun with us✨`)
     })
 
     
