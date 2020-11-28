@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { decryptMedia, Client } = require('@open-wa/wa-automate')
-const  axios  =  require ( 'axios' )
+const axios = require('axios')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Kolkata').locale('id')
 const { downloader, removebg, meme, translate, covid } = require('../../lib')
@@ -8,7 +8,7 @@ const { msgFilter, color, processTime, is } = require('../../utils')
 const { uploadImages } = require('../../utils/fetcher')
 
 
-const { menuId} = require('./text')
+const { menuId } = require('./text')
 
 module.exports = msgHandler = async (client, message) => {
     try {
@@ -47,31 +47,35 @@ module.exports = msgHandler = async (client, message) => {
 
         switch (command) {
             // Menu and TnC
-            
+
             case 'corona':
-            case 'covid':    
+            case 'covid':
                 covid().then((result) => client.sendText(from, result))
                 break
 
 
             case 'fiercekimummy':
                 client.reply(from, 'bohot hot hai bhai👉😘', id)
-                break    
-                
-            case 'sendnudes':  
+                break
+
+            case 'sendnudes':
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndiansGoneWild');
-                const {title, url} = response.data
+                const { title, url } = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
                 break
-            
+
             case 'meme':
-                const response1 = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
-                const { url } = response1.data
-                await client.sendFileFromUrl(from, `${url}`, 'meme.jpg')
-                break    
-                
+                try {
+                    const response1 = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
+                    const { url } = response1.data
+                    await client.sendFileFromUrl(from, `${url}`, 'meme.jpg')
+                } catch (err) {
+                    console.log(err)
+                }
+                break
+
             case 'bot':
-            case 'hi':    
+            case 'hi':
                 client.reply(from, 'kyaa dikkat hai bhai?🧐🧐', id)
                 break
 
@@ -103,16 +107,16 @@ module.exports = msgHandler = async (client, message) => {
             case 'iloveyou':
             case 'ok':
             case 'love':
-            case 'rishabh':                
+            case 'rishabh':
                 await client.sendText(from, menuId.textDonasi())
                 break
 
             case 'animate':
-             if(isMedia){
-                const encryptMedia = isQuotedImage ? quotedMsg : message 
-                const mediaData = await decryptMedia(encryptMedia, uaOverride)
-                client.sendVideoAsGif(from, mediaData)
-             }
+                if (isMedia) {
+                    const encryptMedia = isQuotedImage ? quotedMsg : message
+                    const mediaData = await decryptMedia(encryptMedia, uaOverride)
+                    client.sendVideoAsGif(from, mediaData)
+                }
                 break
 
             // Sticker Creator
@@ -209,7 +213,7 @@ module.exports = msgHandler = async (client, message) => {
                         client.reply(from, 'bhai only instagram reels download kar skta abhi main😥😥', id)
                     })
                 break
-            
+
             case 'makememe':
                 if ((isMedia || isQuotedImage) && args.length >= 2) {
                     const top = arg.split('|')[0]
@@ -243,7 +247,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'porn':
             case 'pornhub':
             case 'dani':
-            case 'sunny':    
+            case 'sunny':
                 client.reply(from, 'Bade harami ho beta😏😏', id)
                 break
 
@@ -264,12 +268,12 @@ module.exports = msgHandler = async (client, message) => {
             case 'share':
                 client.reply(from, '❤️To start coversation with me click *https://wa.link/w3syjd* \n\n❤️To add me in your group *save my number and add me in your group*', id)
                 break
-            
+
             case 'add':
-            case 'feedback':    
+            case 'feedback':
                 client.reply(from, 'If you want your commands to be added in the bot write it here and i will add it: https://bit.ly/wa-stickerbot', id)
-                break    
-                
+                break
+
             case 'yes':
             case 'haan':
             case 'han':
@@ -331,7 +335,7 @@ module.exports = msgHandler = async (client, message) => {
                 const groups = await client.getAllGroups()
                 client.sendText(from, `Status :\n- *${loadedMsg}* Loaded Messages\n- *${groups.length}* Group Chats\n- *${chatIds.length - groups.length}* Personal Chats\n- *${chatIds.length}* Total Chats`)
                 break
-                
+
             }
             default:
                 client.sendStickerfromUrlAsReply(from, 'https://i.imgur.com/N6uXNpD.png', 'test.png', id)
