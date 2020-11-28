@@ -105,9 +105,10 @@ module.exports = msgHandler = async (client, message) => {
             case 'rishabh':                
                 await client.sendText(from, menuId.textDonasi())
                 break
-                
+
             case 'animate':
              if(isMedia){
+                const encryptMedia = isQuotedImage ? quotedMsg : message 
                 const mediaData = await decryptMedia(encryptMedia, uaOverride)
                 client.sendVideoAsGif(from, mediaData)
              }
