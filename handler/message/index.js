@@ -58,7 +58,9 @@ module.exports = msgHandler = async (client, message) => {
             case 'covid':    
                 covid().then((result) => client.sendText(from, result))
                 break
-                
+             
+            case 'test':
+                await client.sendStickerfromUrl(from, 'https://i.imgflip.com/33ira3.jpg', 'test.jpg' )    
                 
             case 'sendnudes':  
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndiansGoneWild');
