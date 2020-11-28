@@ -59,10 +59,7 @@ send image and it will return the Meme with your text
 10. *#corona* or *#covid*
 To see the lastest COVID 19 report of India
 
-11. *#cricket*
-To See Todays Live Score
-
-12. *#add* 
+11. *#add* 
 To add your custom commands
 
 ☕ _https://buymeacoff.ee/rishabh053_

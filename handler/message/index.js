@@ -49,16 +49,17 @@ module.exports = msgHandler = async (client, message) => {
 
         switch (command) {
             // Menu and TnC
-            case 'cricket':
-            case 'live':    
-                live().then((result) => client.sendText(from, result))
-                break
-
+            
             case 'corona':
             case 'covid':    
                 covid().then((result) => client.sendText(from, result))
                 break
-             
+
+
+            case 'fiercekimummy':
+                client.reply(from, 'bohot hot hai bhai', id)
+                break
+
             case 'test':
                 await client.sendStickerfromUrl(from, 'https://i.imgur.com/KL02AKC.png', 'test.png' )
                 break    
