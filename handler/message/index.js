@@ -61,13 +61,13 @@ module.exports = msgHandler = async (client, message) => {
             case 'sendnudes':  
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/IndiansGoneWild');
                 const {title, url} = response.data
-                await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
+                await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
                 break
             
             case 'meme':
                 const ans = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
-                const { postlink, title, subreddit, url, nsfw, spoiler } = ans.data
-                await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
+                const { url } = ans.data
+                await client.sendFileFromUrl(from, `${url}`, 'meme.jpg')
                 break    
                 
             case 'bot':
