@@ -60,8 +60,9 @@ module.exports = msgHandler = async (client, message) => {
                 
                 
             case 'nudes':  
-                const ImageBase64 = await meme.random()
-                client.sendFile(from, ImageBase64, 'image.png', '', null, true)
+                const response = await axios.get('https://meme-api.herokuapp.com/gimme/wholesomeanimemes');
+                const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
+                await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
                 break    
                 
             case 'bot':
