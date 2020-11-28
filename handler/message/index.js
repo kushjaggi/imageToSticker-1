@@ -338,7 +338,7 @@ module.exports = msgHandler = async (client, message) => {
 
             }
             default:
-                client.sendStickerfromUrlAsReply(from, 'https://i.imgur.com/N6uXNpD.png', 'test.png', id)
+                client.sendStickerfromUrl(from, 'https://i.imgur.com/N6uXNpD.png', 'test.png', id)
                 console.log(color('[ERROR]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), 'Unregistered Command from', color(pushname))
                 break
         }
