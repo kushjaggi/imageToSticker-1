@@ -302,7 +302,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'sunny':
             case 'mia':    
                 const adult2 = ["Porn dekh le na😒😒", "Kon hai ye log😆", "Bura lagta hai bhai😒", "Saabhash! beta😒", "Waaah", "Tu virgin hi marega😜😜", "Chillao mat attack aa jayega", "Koi sense hai is baat ki🤨🤨", "Ise kehte hai angrez🤣🤣", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
-                const random4 = Math.floor(Math.random() * adult.length);
+                const random4 = Math.floor(Math.random() * adult2.length);
                 await client.reply(from, `${adult2[random4]}`, id)
                 break
 
@@ -310,7 +310,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'fuck':
             case 'bsdk':    
                 const adult1 = ["Beta padh le thoda😒😒", "Chup kar bhosdike😆😆", "Kya chod failaya hai idhar😒😒", "porn dekh le bsdk😒", "Ye koi ramdikhana hai😡😡", "Aao kabhi haveli pe😜😜", "mujhe chakkar aa raha hai😪😪", "Teri wajah se mera atmhatya karne ka time aa gya hai🤨🤨", "Abey Saale🙄🙄", "Aye tu chup re😏", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
-                const random3 = Math.floor(Math.random() * adult.length);
+                const random3 = Math.floor(Math.random() * adult1.length);
                 await client.reply(from, `${adult1[random3]}`, id)
                 break
 
