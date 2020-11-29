@@ -57,24 +57,25 @@ module.exports = msgHandler = async (client, message) => {
             case 'howtoimpressher':
                 client.reply(from, 'nahi degi🤣🤣', id)
                 break
-            
+
             case 'howtoimpresshim':
                 client.reply(from, 'nahi dega🤣🤣', id)
                 break
-            
+
             case 'slap':
                 arg = body.trim().split(' ')
                 const person = author.replace('@c.us', '')
                 await client.sendGiphyAsSticker(from, 'https://bolojawan.com/wp-content/uploads/2017/08/giphy-2.gif')
                 client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
-                break  
-            
+                break
+
             case 'abuse':
-                //arg = body.trim().split(' ')
-                const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu" , "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
+                const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * months.length);
-               // const person = author.replace('@c.us', ''))
-               await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`)
+                if (mentionedJidList[0] === botNumber) return await client.reply(from, 'mujhe hi demote karoge🙄🙄', id)
+                else {
+                    await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`)
+                }
                 break
 
             case 'sendnudes':
@@ -337,7 +338,7 @@ module.exports = msgHandler = async (client, message) => {
                 if (!isBotGroupAdmins) return client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)
                 if (mentionedJidList.length !== 1) return client.reply(from, 'ek ek karke bhai😒', id)
                 if (!groupAdmins.includes(mentionedJidList[0])) return await client.reply(from, 'Admin nahi hai wo😒😒', id)
-                if (mentionedJidList[0] === botNumber) return await client.reply(from, 'Format galat hai bhai *#demote* @name type kar🙄🙄', id)
+                if (mentionedJidList[0] === botNumber) return await client.reply(from, 'mujhe hi demote karoge🙄🙄', id)
                 await client.demoteParticipant(groupId, mentionedJidList[0])
                 await client.sendTextWithMentions(from, `hata diya @${mentionedJidList[0].replace('@c.us', '')} ko admin se`)
                 break
