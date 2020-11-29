@@ -71,16 +71,10 @@ module.exports = msgHandler = async (client, message) => {
             
             case 'abuse':
                 arg = body.trim().split(' ')
-                var answers = [
-                    "Hey",
-                    "Howdy",
-                    "Hello There",
-                    "Wotcha",
-                    "Alright gov'nor"
-                  ]                  
-                  var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+                const months = ["January", "February", "March", "April", "May", "June", "July"];
+                const random1 = Math.floor(Math.random() * months.length);
                // const person = author.replace('@c.us', ''))
-                client.sendText(from, randomAnswer + arg[1])
+                client.sendText(from, months[random1] + arg[1])
                 break
 
             case 'sendnudes':
