@@ -79,8 +79,8 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, 'I Love You😘😘', id)
                 break  
 
-            case 'alunibba':
-                client.reply(from, 'Isme koi shak nahi😂🤣',id)
+            case 'alu':
+                client.sendStickerfromUrl(from, 'https://i.imgur.com/w80GYvf.png', 'alu.png', id)
                 break
 
             case 'arpit':
@@ -93,7 +93,7 @@ module.exports = msgHandler = async (client, message) => {
                 if (mentionedJidList.length === 0) return client.reply(from, 'Kisko gaadi deni hai bolo🤬🤬', id)
                 if (mentionedJidList[0] === botNumber) return await client.reply(from, 'khud ko gaali nahi deta main😎😎', id)
                 else {
-                    await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`)
+                    await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`, id)
                 }
                 break
 
@@ -116,7 +116,9 @@ module.exports = msgHandler = async (client, message) => {
 
             case 'bot':
             case 'hi':
-                client.reply(from, 'kyaa dikkat hai bhai?🧐🧐', id)
+                const bot = ["Kyaa problem hai bhai🤓🤓", "Bol na bhai🤗🤗", "Tumlog saale slow kr dete mujhe😒😒", "Spam mat kr bsdk😒", "Bolo kyaa kaam hai🥺", "Tabiyat kharab hai meri🤢", "Nahi degi bhai😪😪", "Hukum mere aaka🤭", "Pareshan kar diye ho🙄🙄", "Nahi dunga reply😏😏", "Haan👄", "🤦‍♂️🤦‍♂️🤦‍♂️", "I am ded👻👻"];
+                const random2 = Math.floor(Math.random() * bot.length);
+                await client.reply(from, `${bot[random2]}`, id)
                 break
 
             case 'speed':
