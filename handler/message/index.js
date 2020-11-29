@@ -153,13 +153,13 @@ module.exports = msgHandler = async (client, message) => {
                 await client.sendText(from, menuId.textDonasi())
                 break
 
-            case 'animate':
+           /* case 'animate':
                 if (isMedia) {
                     const encryptMedia = isQuotedImage ? quotedMsg : message
                     const mediaData = await decryptMedia(encryptMedia, uaOverride)
                     client.sendVideoAsGif(from, mediaData)
                 }
-                break
+                break */
 
             // Sticker Creator
             case 'sticker':
@@ -290,7 +290,9 @@ module.exports = msgHandler = async (client, message) => {
             case 'loda':
             case 'lauda':
             case 'lawda':
-                client.reply(from, 'Chala jaa bhosdike😒😒', id)
+                const adult = ["Chala jaa bhosdike😒😒", "Padhai pe dhyan do IAS-YAS bano😆😆", "Yehi sab message kro mujhe bsdk😒😒", "porn dekh le bsdk😒", "nahi degi beta😂😂", "Saans toh lene de be🤢", "Meri shaktiyo ka galat istmaal ho raha😪😪", "Aisa keech ke lafa dunga😂😂", "Abey Saale🙄🙄", "Bahot tez ho gaye ho😏😏", "Hila le bsdk😂😂", "I am ded👻👻"];
+                const random3 = Math.floor(Math.random() * adult.length);
+                await client.reply(from, `${adult[random3]}`, id)
                 break
 
 
@@ -298,13 +300,18 @@ module.exports = msgHandler = async (client, message) => {
             case 'pornhub':
             case 'dani':
             case 'sunny':
-                client.reply(from, 'Bade harami ho beta😏😏', id)
+            case 'mia':    
+                const adult2 = ["Porn dekh le na😒😒", "Kon hai ye log😆", "Bura lagta hai bhai😒", "Saabhash! beta😒", "Waaah", "Tu virgin hi marega😜😜", "Chillao mat attack aa jayega", "Koi sense hai is baat ki🤨🤨", "Ise kehte hai angrez🤣🤣", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
+                const random4 = Math.floor(Math.random() * adult.length);
+                await client.reply(from, `${adult2[random4]}`, id)
                 break
 
             case 'sex':
             case 'fuck':
-            case 'bsdk':
-                client.reply(from, 'Saale sudhroge nahi, ye karne ke liye main hu yaha😑😑', id)
+            case 'bsdk':    
+                const adult1 = ["Beta padh le thoda😒😒", "Chup kar bhosdike😆😆", "Kya chod failaya hai idhar😒😒", "porn dekh le bsdk😒", "Ye koi ramdikhana hai😡😡", "Aao kabhi haveli pe😜😜", "mujhe chakkar aa raha hai😪😪", "Teri wajah se mera atmhatya karne ka time aa gya hai🤨🤨", "Abey Saale🙄🙄", "Aye tu chup re😏", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
+                const random3 = Math.floor(Math.random() * adult.length);
+                await client.reply(from, `${adult1[random3]}`, id)
                 break
 
             case 'mc':
