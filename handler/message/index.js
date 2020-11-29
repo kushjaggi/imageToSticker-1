@@ -3,9 +3,11 @@ const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const axios = require('axios')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Kolkata').locale('id')
-const { downloader, removebg, meme, translate, covid } = require('../../lib')
+const { downloader, meme, translate, covid } = require('../../lib')
 const { msgFilter, color, processTime, is } = require('../../utils')
 const { uploadImages } = require('../../utils/fetcher')
+const { RemoveBgResult, removeBackgroundFromImageBase64, removeBackgroundFromImageFile } = require('remove.bg')
+const fs = require('fs-extra')
 
 
 const { menuId } = require('./text')
@@ -162,11 +164,17 @@ module.exports = msgHandler = async (client, message) => {
                         console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
                     })
                 } else if (args[0] === 'nobg') {
-                    /**
-                    * This is Premium feature.
-                    * Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information.
-                    */
-                    client.reply(from, 'itne paise me itna hi milega abhi🙄🙄', id)
+                    try {
+                        var  mediaData = await  decryptMedia(encryptMedia,uaOverride)
+                        var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
+                        var  base64img  =  imageBase64
+                        var outFile = './img/noBg.png'
+                        var result = await removeBackgroundFromImageBase64({ base64img, apiKey: 'mLPH7dsZbkacRjrsAJ32pcio', size: 'auto', type: 'auto', outFile })
+                        await fs.writeFile(outFile, result.base64img)
+                        await client.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`)
+                    } catch(err) {
+                        console.log(err)
+                    }
                 } else if (args.length === 1) {
                     if (!is.Url(url)) { await client.reply(from, 'Link galat hai bhai, direct link de mujhe😐😐', id) }
                     client.sendStickerfromUrl(from, url).then((r) => (!r && r !== undefined)
