@@ -52,6 +52,9 @@ module.exports = msgHandler = async (client, message) => {
             case 'covid':
                 covid().then((result) => client.sendText(from, result))
                 break
+            
+            case 'list':
+                client.reply(from, '*New Commands:* #howtoimpressher, #abuse @name, #sun, #mc, #say, #meme, #cheems, #love and some 18+ commands of those who requested😉😉 ')    
 
 
             case 'howtoimpressher':
@@ -61,13 +64,18 @@ module.exports = msgHandler = async (client, message) => {
             case 'howtoimpresshim':
                 client.reply(from, 'nahi dega🤣🤣', id)
                 break
-
-            case 'slap':
-                arg = body.trim().split(' ')
-                const person = author.replace('@c.us', '')
-                await client.sendGiphyAsSticker(from, 'https://bolojawan.com/wp-content/uploads/2017/08/giphy-2.gif')
-                client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
+            
+            case 'cheems':
+                 client.reply(from, 'Hemlo emveryone👋👋', id)
+                 break    
+            
+            case 'sun':
+                client.reply(from, 'bol lavde🤣🤣', id)  
                 break
+            
+            case 'say':
+                client.reply(from, 'I Love You😘😘', id)
+                break    
 
             case 'abuse':
                 const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
@@ -79,6 +87,7 @@ module.exports = msgHandler = async (client, message) => {
                 break
 
             case 'sendnudes':
+            case 'nudes':    
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/adorableporn');
                 const { title, url } = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
@@ -278,6 +287,11 @@ module.exports = msgHandler = async (client, message) => {
                 break
 
             case 'mc':
+            case 'madarchod':
+            case 'madharchod':        
+                client.reply(from, 'Duniya hi M@d@rc#0d hai bhai😑😑', id)
+                break
+
             case 'bc':
             case 'sala':
             case 'chutiye':

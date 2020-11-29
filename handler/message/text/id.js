@@ -23,8 +23,6 @@ exports.textMenu = (pushname) => {
 Hi, ${pushname || ''}! 👋️
 Here are some of the features of this bot! ✨
 
-Sticker Maker:
-
 1. *#sticker*
 To convert an image into a sticker, send the image with the caption #sticker or reply to the image that has been sent with #sticker.
 
@@ -40,7 +38,7 @@ Will return the Instagram Reels download link.
 5. *#meme*
 Will return a random meme
 
-6. *#meme* _<upper text>_ | _<lower text>_
+6. *#makememe* _<upper text>_ | _<lower text>_
 send image and it will return the Meme with your text
 
 7. *#share*
@@ -54,6 +52,9 @@ Displays Bot Terms and Conditions.
 
 10. *#add* 
 To add your custom commands
+
+11. *#list*
+_Your New commands added, see the list_
 
 ☕ _https://buymeacoff.ee/rishabh053_
 Hope you have a great day!✨`
