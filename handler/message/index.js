@@ -168,7 +168,7 @@ module.exports = msgHandler = async (client, message) => {
                         var  mediaData = await  decryptMedia(encryptMedia,uaOverride)
                         var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
                         var  base64img  =  imageBase64
-                        var outFile = './img/noBg.png'
+                        var outFile = '././img/noBg.png'
                         var result = await removeBackgroundFromImageBase64({ base64img, apiKey: 'mLPH7dsZbkacRjrsAJ32pcio', size: 'auto', type: 'auto', outFile })
                         await fs.writeFile(outFile, result.base64img)
                         await client.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`)
