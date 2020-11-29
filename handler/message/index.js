@@ -54,8 +54,27 @@ module.exports = msgHandler = async (client, message) => {
                 break
 
 
-            case 'fiercekimummy':
-                client.reply(from, 'bohot hot hai bhai👉😘', id)
+            case 'howtoimpressher':
+                client.reply(from, 'nahi degi🤣🤣', id)
+                break
+            
+            case 'howtoimpresshim':
+                client.reply(from, 'nahi dega🤣🤣', id)
+                break
+            
+            case 'slap':
+                arg = body.trim().split(' ')
+                const person = author.replace('@c.us', '')
+                await client.sendGiphyAsSticker(from, 'https://bolojawan.com/wp-content/uploads/2017/08/giphy-2.gif')
+                client.sendTextWithMentions(from, '@' + person + ' *slapped* ' + arg[1])
+                break  
+            
+            case 'abuse':
+                arg = body.trim().split(' ')
+                const abuse = ['madarchod', 'bhosdike', 'bhenchod', 'chutiya', 'tiktoker', 'bhen ke lode', 'bhadwa', 'gaandu']
+                const randSub = abuse[Math.random() * abuse.length | 0]
+               // const person = author.replace('@c.us', ''))
+                client.sendTextWithMentions(from, randSub + arg[1])
                 break
 
             case 'sendnudes':
