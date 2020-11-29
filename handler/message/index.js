@@ -72,7 +72,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'abuse':
                 const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * months.length);
-                if (mentionedJidList[0] === botNumber) return await client.reply(from, 'mujhe hi demote karoge🙄🙄', id)
+                if (mentionedJidList[0] === botNumber) return await client.reply(from, 'khud ko gaali nahi deta main😎😎', id)
                 else {
                     await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`)
                 }
