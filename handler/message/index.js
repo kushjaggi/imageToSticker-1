@@ -291,8 +291,8 @@ module.exports = msgHandler = async (client, message) => {
             case 'lauda':
             case 'lawda':
                 const adult = ["Chala jaa bhosdike😒😒", "Padhai pe dhyan do IAS-YAS bano😆😆", "Yehi sab message kro mujhe bsdk😒😒", "porn dekh le bsdk😒", "nahi degi beta😂😂", "Saans toh lene de be🤢", "Meri shaktiyo ka galat istmaal ho raha😪😪", "Aisa keech ke lafa dunga😂😂", "Abey Saale🙄🙄", "Bahot tez ho gaye ho😏😏", "Hila le bsdk😂😂", "I am ded👻👻"];
-                const random3 = Math.floor(Math.random() * adult.length);
-                await client.reply(from, `${adult[random3]}`, id)
+                const rand = Math.floor(Math.random() * adult.length);
+                await client.reply(from, `${adult[rand]}`, id)
                 break
 
 
