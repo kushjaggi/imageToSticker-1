@@ -74,7 +74,7 @@ module.exports = msgHandler = async (client, message) => {
                 const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu" , "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * months.length);
                // const person = author.replace('@c.us', ''))
-                await client.sendTextWithMentions(from, `@${mentionedJidList[0].replace('@c.us', '')}`+ random1 + '.')
+               await client.sendTextWithMentions(from, `${random1} @${mentionedJidList[0].replace('@c.us', '')}`)
                 break
 
             case 'sendnudes':
