@@ -71,10 +71,16 @@ module.exports = msgHandler = async (client, message) => {
             
             case 'abuse':
                 arg = body.trim().split(' ')
-                var alist = ['madarchod', 'bhosdike', 'bhenchod', 'chutiya', 'tiktoker', 'bhen ke lode', 'bhadwa', 'gaandu'];
-                var abuse = alist[Math.floor(Math.random() * alist.length)];
+                var answers = [
+                    "Hey",
+                    "Howdy",
+                    "Hello There",
+                    "Wotcha",
+                    "Alright gov'nor"
+                  ]                  
+                  var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
                // const person = author.replace('@c.us', ''))
-                client.sendTextWithMentions(from, abuse + arg[1])
+                client.sendText(from, randomAnswer + arg[1])
                 break
 
             case 'sendnudes':
