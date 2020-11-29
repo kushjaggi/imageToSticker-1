@@ -71,7 +71,7 @@ module.exports = msgHandler = async (client, message) => {
             
             case 'abuse':
                 arg = body.trim().split(' ')
-                const abuse = ['madarchod', 'bhosdike', 'bhenchod', 'chutiya', 'tiktoker', 'bhen ke lode', 'bhadwa', 'gaandu']
+                var abuse = ['madarchod', 'bhosdike', 'bhenchod', 'chutiya', 'tiktoker', 'bhen ke lode', 'bhadwa', 'gaandu']
                 const randSub = abuse[Math.random() * abuse.length | 0]
                // const person = author.replace('@c.us', ''))
                 client.sendTextWithMentions(from, randSub + arg[1])
