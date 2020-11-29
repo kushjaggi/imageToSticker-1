@@ -82,6 +82,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'abuse':
                 const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * months.length);
+                if (mentionedJidList.length === 0) return client.reply(from, 'Kisko gaadi deni hai bolo🤬🤬', id)
                 if (mentionedJidList[0] === botNumber) return await client.reply(from, 'khud ko gaali nahi deta main😎😎', id)
                 else {
                     await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`)
@@ -90,7 +91,7 @@ module.exports = msgHandler = async (client, message) => {
 
             case 'sendnudes':
             case 'nudes':    
-                const response = await axios.get('https://meme-api.herokuapp.com/gimme/adorableporn');
+                const response = await axios.get('https://meme-api.herokuapp.com/gimme/fitgirls');
                 const { title, url } = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
                 break
