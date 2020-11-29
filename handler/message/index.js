@@ -77,7 +77,15 @@ module.exports = msgHandler = async (client, message) => {
             
             case 'say':
                 client.reply(from, 'I Love You😘😘', id)
-                break    
+                break  
+
+            case 'alunibba':
+                client.reply(from, 'Isme koi shak nahi😂🤣',id)
+                break
+
+            case 'arpit':
+                client.reply(from, 'Arpit chutiya hai🤣🤣',id)
+                break
 
             case 'abuse':
                 const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
