@@ -165,6 +165,8 @@ module.exports = msgHandler = async (client, message) => {
                     })
                 } else if (args[0] === 'nobg') {
                     try {
+                        var encryptMedia = isQuotedImage ? quotedMsg : message
+                        var _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
                         var  mediaData = await  decryptMedia(encryptMedia,uaOverride)
                         var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
                         var  base64img  =  imageBase64
