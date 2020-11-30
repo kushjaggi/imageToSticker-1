@@ -96,7 +96,7 @@ module.exports = msgHandler = async (client, message) => {
 
             case 'abuse':
                 const list1 = ["Bhosdike", "Madarchod", "Bhen ke takke","Saala kutta", "Kamina", "Kamini", "Kutta", "Kuttiya", "Chakka","Hijra","Chullu bhar muth mein doob mar", "Gadha", "Tatti", "Bhadwe", "Hazaar lund teri gaand main",
-                 "Kutte ke poot","teri maa ki choot","Teri maa ka bhosda", "Bol teri gand kaise maru", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Jhat ke baal", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Chipkali ke jhaat ke baal", "Kitna Gaali Dilwayega Bhai"];
+                 "Kutte ke poot, teri maa ki choot","Teri maa ka bhosda", "Bol teri gand kaise maru", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Jhat ke baal", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Chipkali ke jhaat ke baal", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * list1.length);
                 if (mentionedJidList.length === 0) return client.reply(from, 'Kisko gaali deni hai bolo🤬🤬', id)
                 if (mentionedJidList[0] === botNumber) return await client.reply(from, 'khud ko gaali nahi deta main😎😎', id)
