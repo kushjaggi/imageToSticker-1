@@ -76,7 +76,8 @@ module.exports = msgHandler = async (client, message) => {
                 break
             
             case 'say':
-                client.reply(from, 'I Love You😘😘', id)
+                const sayWord = body.slice(4)
+                client.reply(from, `${sayWord}`, id)
                 break  
 
             case 'alu':
