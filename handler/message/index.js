@@ -134,7 +134,7 @@ module.exports = msgHandler = async (client, message) => {
                 "https://media.giphy.com/media/Vr115pWzOnMtO/giphy-downsized.gif","https://media.giphy.com/media/Qz6TS5AZVbWFi/giphy-downsized.gif","https://media.giphy.com/media/8FGvwxpd9rrvW/giphy-downsized.gif"];
                 const GiphyRandom = Math.floor(Math.random() * giphylinks.length);
                 client.sendGiphyAsSticker(from, `${giphylinks[GiphyRandom]}`).then(() => {
-                    await client.sendTextWithMentions(from, `Kissed @${mentionedJidList[0].replace('@c.us', '')}`, id)
+                    client.sendTextWithMentions(from, `Kissed @${mentionedJidList[0].replace('@c.us', '')}`, id)
                     console.log(`Kisssed In ${processTime(t, moment())} Second`)
                 }).catch((err) => console.log(err))
                 break    
