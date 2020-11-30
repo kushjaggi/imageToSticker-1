@@ -135,7 +135,7 @@ module.exports = msgHandler = async (client, message) => {
                 const GiphyRandom = Math.floor(Math.random() * giphylinks.length);
                 client.sendGiphyAsSticker(from, `${giphylinks[GiphyRandom]}`).then(() => {
                     await client.sendTextWithMentions(from, `Kissed @${mentionedJidList[0].replace('@c.us', '')}`, id)
-                    console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
+                    console.log(`Kisssed In ${processTime(t, moment())} Second`)
                 }).catch((err) => console.log(err))
                 break    
             
