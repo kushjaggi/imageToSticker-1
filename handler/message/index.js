@@ -56,7 +56,7 @@ module.exports = msgHandler = async (client, message) => {
                 break
             
             case 'list':
-                client.reply(from, '*New Commands:* #howtoimpressher, #howtoimpresshim, #abuse @name, #sun, #mc, #say your word, #meme, #cheems, #love and some 18+ commands of those who requested😉😉 ')    
+                client.reply(from, '*New Commands:* #howtoimpressher, #howtoimpresshim, #abuse @name, #sun, #mc, #say _your word_, #meme, #cheems, #kiss @name and some 18+ commands of those who requested😉😉 ')    
                 break
 
             case 'howtoimpressher':
