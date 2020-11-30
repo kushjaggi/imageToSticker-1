@@ -54,9 +54,9 @@ module.exports = msgHandler = async (client, message) => {
             case 'covid':
                 covid().then((result) => client.sendText(from, result))
                 break
-            
+
             case 'list':
-                client.reply(from, '*New Commands:* #howtoimpressher, #howtoimpresshim, #abuse @name, #sun, #mc, #say _your word_, #meme, #cheems, #kiss @name and some 18+ commands of those who requested😉😉 ')    
+                client.reply(from, '*New Commands:* #howtoimpressher, #howtoimpresshim, #abuse @name, #sun, #mc, #say _your word_, #meme, #cheems, #kiss @name and some 18+ commands of those who requested😉😉 ')
                 break
 
             case 'howtoimpressher':
@@ -66,27 +66,27 @@ module.exports = msgHandler = async (client, message) => {
             case 'howtoimpresshim':
                 client.reply(from, 'nahi dega🤣🤣', id)
                 break
-            
+
             case 'cheems':
-                 client.reply(from, 'Hemlo emveryone👋👋', id)
-                 break    
-            
-            case 'sun':
-                client.reply(from, 'bol lavde🤣🤣', id)  
+                client.reply(from, 'Hemlo emveryone👋👋', id)
                 break
-            
+
+            case 'sun':
+                client.reply(from, 'bol lavde🤣🤣', id)
+                break
+
             case 'say':
                 const sayWord = body.slice(5)
                 if (args.length < 1) return client.reply(from, 'Kyaa bolu bhai?🧐🧐', id)
                 client.reply(from, `${sayWord}`, id)
-                break  
+                break
 
             case 'alu':
                 client.sendStickerfromUrl(from, 'https://i.imgur.com/w80GYvf.png', 'alu.png', id)
                 break
 
             case 'sexy':
-                client.reply(from, 'Wo to main hu hi🤣🤣',id)
+                client.reply(from, 'Wo to main hu hi🤣🤣', id)
                 break
 
 
@@ -103,16 +103,29 @@ module.exports = msgHandler = async (client, message) => {
             case 'sendnudes':
             case 'nudes':
                 const subreddits = ['IndiansGoneWild', 'adorableporn', 'gonewild', 'Nude_Selfie', 'legalteens', 'pussy', 'ratemyboobs']
-                const randSub = subreddits[Math.random() * subreddits.length | 0]    
+                const randSub = subreddits[Math.random() * subreddits.length | 0]
                 const response = await axios.get('https://meme-api.herokuapp.com/gimme/' + randSub);
                 const { title, url } = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
                 break
 
+            case 'dick':
+            case 'dickpic':
+            case 'sins':
+            case 'jhonny':        
+                try {
+                    const response2 = await axios.get('https://meme-api.herokuapp.com/gimme/penis');
+                    const { title2, url2 } = response2.data
+                    await client.sendFileFromUrl(from, `${url2}`, 'nudes.jpg', `${title2}`)
+                } catch (err) {
+                    console.log(err)
+                }
+                break
+
             case 'meme':
                 try {
                     const subreddits1 = ['dankinindia', 'IndianMeyMeys', 'indiameme', 'IndianDankMemes']
-                    const randSub1 = subreddits1[Math.random() * subreddits1.length | 0] 
+                    const randSub1 = subreddits1[Math.random() * subreddits1.length | 0]
                     const response1 = await axios.get('https://meme-api.herokuapp.com/gimme/' + randSub1);
                     const { url } = response1.data
                     await client.sendFileFromUrl(from, `${url}`, 'meme.jpg')
@@ -127,19 +140,19 @@ module.exports = msgHandler = async (client, message) => {
                 const random2 = Math.floor(Math.random() * bot.length);
                 await client.reply(from, `${bot[random2]}`, id)
                 break
-            
+
             case 'kiss':
-                const giphylinks = ["https://media.giphy.com/media/l2Je2M4Nfrit0L7sQ/giphy-downsized.gif","https://media.giphy.com/media/3o7qDVQ2GrFAf1MVgc/giphy-downsized.gif","https://media.giphy.com/media/RW4Vf0698oX3W/giphy-downsized.gif",
-                "https://media.giphy.com/media/wf4UuPMYnwBck/giphy-downsized.gif","https://media.giphy.com/media/plsoC32RpEngk/giphy-downsized.gif","https://media.giphy.com/media/2stFpADPSpfQQ/giphy-downsized.gif","https://media.giphy.com/media/nxNwAJqEty4py/giphy-downsized.gif",
-                "https://media.giphy.com/media/Vr115pWzOnMtO/giphy-downsized.gif","https://media.giphy.com/media/Qz6TS5AZVbWFi/giphy-downsized.gif","https://media.giphy.com/media/8FGvwxpd9rrvW/giphy-downsized.gif"];
+                const giphylinks = ["https://media.giphy.com/media/l2Je2M4Nfrit0L7sQ/giphy-downsized.gif", "https://media.giphy.com/media/3o7qDVQ2GrFAf1MVgc/giphy-downsized.gif", "https://media.giphy.com/media/RW4Vf0698oX3W/giphy-downsized.gif",
+                    "https://media.giphy.com/media/wf4UuPMYnwBck/giphy-downsized.gif", "https://media.giphy.com/media/plsoC32RpEngk/giphy-downsized.gif", "https://media.giphy.com/media/2stFpADPSpfQQ/giphy-downsized.gif", "https://media.giphy.com/media/nxNwAJqEty4py/giphy-downsized.gif",
+                    "https://media.giphy.com/media/Vr115pWzOnMtO/giphy-downsized.gif", "https://media.giphy.com/media/Qz6TS5AZVbWFi/giphy-downsized.gif", "https://media.giphy.com/media/8FGvwxpd9rrvW/giphy-downsized.gif"];
                 const GiphyRandom = Math.floor(Math.random() * giphylinks.length);
                 const kissurl = giphylinks[GiphyRandom];
                 client.sendGiphyAsSticker(from, kissurl).then(() => {
                     client.sendTextWithMentions(from, `Kissed @${mentionedJidList[0].replace('@c.us', '')}`, id)
                     console.log(`Kisssed In ${processTime(t, moment())} Second`)
                 }).catch((err) => console.log(err))
-                break    
-            
+                break
+
 
 
             case 'speed':
@@ -174,13 +187,13 @@ module.exports = msgHandler = async (client, message) => {
                 await client.sendText(from, menuId.textDonasi())
                 break
 
-           /* case 'animate':
-                if (isMedia) {
-                    const encryptMedia = isQuotedImage ? quotedMsg : message
-                    const mediaData = await decryptMedia(encryptMedia, uaOverride)
-                    client.sendVideoAsGif(from, mediaData)
-                }
-                break */
+            /* case 'animate':
+                 if (isMedia) {
+                     const encryptMedia = isQuotedImage ? quotedMsg : message
+                     const mediaData = await decryptMedia(encryptMedia, uaOverride)
+                     client.sendVideoAsGif(from, mediaData)
+                 }
+                 break */
 
             // Sticker Creator
             case 'sticker':
@@ -199,14 +212,14 @@ module.exports = msgHandler = async (client, message) => {
                     try {
                         var encryptMedia = isQuotedImage ? quotedMsg : message
                         var _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
-                        var  mediaData = await  decryptMedia(encryptMedia,uaOverride)
+                        var mediaData = await decryptMedia(encryptMedia, uaOverride)
                         var imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-                        var  base64img  =  imageBase64
+                        var base64img = imageBase64
                         var outFile = '././img/noBg.png'
                         var result = await removeBackgroundFromImageBase64({ base64img, apiKey: 'mLPH7dsZbkacRjrsAJ32pcio', size: 'auto', type: 'auto', outFile })
                         await fs.writeFile(outFile, result.base64img)
                         await client.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`)
-                    } catch(err) {
+                    } catch (err) {
                         console.log(err)
                     }
                 } else if (args.length === 1) {
@@ -311,8 +324,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'loda':
             case 'lauda':
             case 'lawda':
-            case 'dick':
-            case 'lund':        
+            case 'lund':
                 const adult = ["Chala jaa bhosdike😒😒", "Padhai pe dhyan do IAS-YAS bano😆😆", "Yehi sab message kro mujhe bsdk😒😒", "porn dekh le bsdk😒", "nahi degi beta😂😂", "Saans toh lene de be🤢", "Meri shaktiyo ka galat istmaal ho raha😪😪", "Aisa keech ke lafa dunga😂😂", "Abey Saale🙄🙄", "Bahot tez ho gaye ho😏😏", "Hila le bsdk😂😂", "I am ded👻👻"];
                 const rand = Math.floor(Math.random() * adult.length);
                 await client.reply(from, `${adult[rand]}`, id)
@@ -325,8 +337,8 @@ module.exports = msgHandler = async (client, message) => {
             case 'sunny':
             case 'mia':
             case 'sendboobs':
-            case 'sendboob':    
-            case 'sendpussy ':             
+            case 'sendboob':
+            case 'sendpussy ':
                 const adult2 = ["Porn dekh le na😒😒", "Kon hai ye log😆", "Bura lagta hai bhai😒", "Saabhash! beta😒", "Waaah", "Tu virgin hi marega😜😜", "Chillao mat attack aa jayega", "Koi sense hai is baat ki🤨🤨", "Ise kehte hai angrez🤣🤣", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
                 const random4 = Math.floor(Math.random() * adult2.length);
                 await client.reply(from, `${adult2[random4]}`, id)
@@ -334,7 +346,7 @@ module.exports = msgHandler = async (client, message) => {
 
             case 'sex':
             case 'fuck':
-            case 'bsdk':    
+            case 'bsdk':
                 const adult1 = ["Beta padh le thoda😒😒", "Chup kar bhosdike😆😆", "Kya chod failaya hai idhar😒😒", "porn dekh le bsdk😒", "Ye koi ramdikhana hai😡😡", "Aao kabhi haveli pe😜😜", "mujhe chakkar aa raha hai😪😪", "Teri wajah se mera atmhatya karne ka time aa gya hai🤨🤨", "Abey Saale🙄🙄", "Aye tu chup re😏", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
                 const random3 = Math.floor(Math.random() * adult1.length);
                 await client.reply(from, `${adult1[random3]}`, id)
@@ -342,7 +354,7 @@ module.exports = msgHandler = async (client, message) => {
 
             case 'mc':
             case 'madarchod':
-            case 'madharchod':        
+            case 'madharchod':
                 client.reply(from, 'Duniya hi M@d@rc#0d hai bhai😑😑', id)
                 break
 
