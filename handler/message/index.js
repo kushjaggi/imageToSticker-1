@@ -87,26 +87,31 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, 'Arpit chutiya hai🤣🤣',id)
                 break
 
+
             case 'abuse':
-                const months = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
-                const random1 = Math.floor(Math.random() * months.length);
+                const list1 = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
+                const random1 = Math.floor(Math.random() * list1.length);
                 if (mentionedJidList.length === 0) return client.reply(from, 'Kisko gaali deni hai bolo🤬🤬', id)
                 if (mentionedJidList[0] === botNumber) return await client.reply(from, 'khud ko gaali nahi deta main😎😎', id)
                 else {
-                    await client.sendTextWithMentions(from, `${months[random1]} @${mentionedJidList[0].replace('@c.us', '')}`, id)
+                    await client.sendTextWithMentions(from, `${list1[random1]} @${mentionedJidList[0].replace('@c.us', '')}`, id)
                 }
                 break
 
             case 'sendnudes':
-            case 'nudes':    
-                const response = await axios.get('https://meme-api.herokuapp.com/gimme/fitgirls');
+            case 'nudes':
+                const subreddits = ['IndiansGoneWild', 'adorableporn', 'gonewild', 'Nude_Selfie', 'legalteens', 'pussy', 'ratemyboobs']
+                const randSub = subreddits[Math.random() * subreddits.length | 0]    
+                const response = await axios.get('https://meme-api.herokuapp.com/gimme/' + randSub);
                 const { title, url } = response.data
                 await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
                 break
 
             case 'meme':
                 try {
-                    const response1 = await axios.get('https://meme-api.herokuapp.com/gimme/IndianDankMemes');
+                    const subreddits1 = ['dankinindia', 'IndianMeyMeys', 'indiameme', 'IndianDankMemes']
+                    const randSub1 = subreddits1[Math.random() * subreddits1.length | 0] 
+                    const response1 = await axios.get('https://meme-api.herokuapp.com/gimme/' + randSub1);
                     const { url } = response1.data
                     await client.sendFileFromUrl(from, `${url}`, 'meme.jpg')
                 } catch (err) {
