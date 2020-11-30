@@ -355,14 +355,20 @@ module.exports = msgHandler = async (client, message) => {
             case 'mc':
             case 'madarchod':
             case 'madharchod':
-                client.reply(from, 'Duniya hi M@d@rc#0d hai bhai😑😑', id)
+            case 'bc':
+            case 'behnchod':        
+                const bcgal = ["Saala behnchod😒😒", "Duinya hi mc hai vro😆", "Nikal yaha se😒", "Admin isko nikalo group se😒", "Baat nhi kr raha main tere se😒", "😭😭😭", "Calling Police🤨", "Same to you🤣🤣", "😣😣"];
+                const randomgal = Math.floor(Math.random() * bcgal.length);
+                await client.reply(from, `${bcgal[randomgal]}`, id)
                 break
 
-            case 'bc':
+            case 'saala':
             case 'sala':
             case 'chutiye':
             case 'chutiya':
-                client.reply(from, 'Gaali sunna hai bot se?😑😑', id)
+                const sala = ["Tu chutiya sala😒😒", "Hum sab hi chutiye hai bhai😆", "Chup kr chutiye😒", "Saabhash! beta😒", "Gaali dene ke liye add kiye ho?😒", "😭😭😭", "Saale block maar dunga🤨", "Chup hoja bhosdike🤣🤣", "Paisa barbaad behcho😣😣"];
+                const randomsl = Math.floor(Math.random() * sala.length);
+                await client.reply(from, `${sala[randomsl]}`, id)
                 break
 
             case 'share':
