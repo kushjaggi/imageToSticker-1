@@ -133,7 +133,8 @@ module.exports = msgHandler = async (client, message) => {
                 "https://media.giphy.com/media/wf4UuPMYnwBck/giphy-downsized.gif","https://media.giphy.com/media/plsoC32RpEngk/giphy-downsized.gif","https://media.giphy.com/media/2stFpADPSpfQQ/giphy-downsized.gif","https://media.giphy.com/media/nxNwAJqEty4py/giphy-downsized.gif",
                 "https://media.giphy.com/media/Vr115pWzOnMtO/giphy-downsized.gif","https://media.giphy.com/media/Qz6TS5AZVbWFi/giphy-downsized.gif","https://media.giphy.com/media/8FGvwxpd9rrvW/giphy-downsized.gif"];
                 const GiphyRandom = Math.floor(Math.random() * giphylinks.length);
-                client.sendGiphyAsSticker(from, `${giphylinks[GiphyRandom]}`).then(() => {
+                const kissurl = giphylinks[GiphyRandom];
+                client.sendGiphyAsSticker(from, kissurl).then(() => {
                     client.sendTextWithMentions(from, `Kissed @${mentionedJidList[0].replace('@c.us', '')}`, id)
                     console.log(`Kisssed In ${processTime(t, moment())} Second`)
                 }).catch((err) => console.log(err))
