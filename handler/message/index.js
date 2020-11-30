@@ -66,6 +66,10 @@ module.exports = msgHandler = async (client, message) => {
             case 'howtoimpresshim':
                 client.reply(from, 'nahi dega🤣🤣', id)
                 break
+            
+            case 'botop':
+                client.reply(from, 'isi baat pe coffee pila de: https://buymeacoffee.com/rishabh053', id)
+                break    
 
             case 'cheems':
                 client.reply(from, 'Hemlo emveryone👋👋', id)
