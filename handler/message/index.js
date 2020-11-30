@@ -66,10 +66,10 @@ module.exports = msgHandler = async (client, message) => {
             case 'howtoimpresshim':
                 client.reply(from, 'nahi dega🤣🤣', id)
                 break
-            
+
             case 'botop':
                 client.reply(from, 'isi baat pe coffee pila de: https://buymeacoffee.com/rishabh053', id)
-                break    
+                break
 
             case 'cheems':
                 client.reply(from, 'Hemlo emveryone👋👋', id)
@@ -116,7 +116,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'dick':
             case 'dickpic':
             case 'sins':
-            case 'jhonny':        
+            case 'jhonny':
                 try {
                     const response2 = await axios.get('https://meme-api.herokuapp.com/gimme/penis');
                     const { title, url } = response2.data
@@ -191,13 +191,18 @@ module.exports = msgHandler = async (client, message) => {
                 await client.sendText(from, menuId.textDonasi())
                 break
 
-            /* case 'animate':
-                 if (isMedia) {
-                     const encryptMedia = isQuotedImage ? quotedMsg : message
-                     const mediaData = await decryptMedia(encryptMedia, uaOverride)
-                     client.sendVideoAsGif(from, mediaData)
-                 }
-                 break */
+            case 'animate':
+                if ((isMedia || isQuotedImage) && args.length === 0) {
+                    const encryptMedia = isQuotedImage ? quotedMsg : message
+                    const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
+                    const mediaData = await decryptMedia(encryptMedia, uaOverride)
+                    const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
+                    client.sendMp4AsSticker(from, imageBase64).then(() => {
+                        client.reply(from, 'Ye lo tumhara sticker🤟')
+                        console.log(`Animated Sticker Processed for ${processTime(t, moment())} Second`)
+                    })
+                }
+                break
 
             // Sticker Creator
             case 'sticker':
@@ -360,7 +365,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'madarchod':
             case 'madharchod':
             case 'bc':
-            case 'behnchod':        
+            case 'behnchod':
                 const bcgal = ["Saala behnchod😒😒", "Duinya hi mc hai vro😆", "Nikal yaha se😒", "Admin isko nikalo group se😒", "Baat nhi kr raha main tere se😒", "😭😭😭", "Calling Police🤨", "Same to you🤣🤣", "😣😣"];
                 const randomgal = Math.floor(Math.random() * bcgal.length);
                 await client.reply(from, `${bcgal[randomgal]}`, id)
