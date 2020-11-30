@@ -115,8 +115,8 @@ module.exports = msgHandler = async (client, message) => {
             case 'jhonny':        
                 try {
                     const response2 = await axios.get('https://meme-api.herokuapp.com/gimme/penis');
-                    const { title2, url2 } = response2.data
-                    await client.sendFileFromUrl(from, `${url2}`, 'nudes.jpg', `${title2}`)
+                    const { title, url } = response2.data
+                    await client.sendFileFromUrl(from, `${url}`, 'nudes.jpg', `${title}`)
                 } catch (err) {
                     console.log(err)
                 }
