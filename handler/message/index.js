@@ -198,7 +198,7 @@ module.exports = msgHandler = async (client, message) => {
                     const mediaData = await decryptMedia(encryptMedia, uaOverride)
                     const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
                     client.sendMp4AsSticker(from, imageBase64).then(() => {
-                        client.reply(from, 'Ye lo tumhara sticker🤟')
+                        client.reply(from, 'Ye dekh jaadoo🌟🌟')
                         console.log(`Animated Sticker Processed for ${processTime(t, moment())} Second`)
                     })
                 }
@@ -334,6 +334,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'lauda':
             case 'lawda':
             case 'lund':
+            case 'naked':    
                 const adult = ["Chala jaa bhosdike😒😒", "Padhai pe dhyan do IAS-YAS bano😆😆", "Yehi sab message kro mujhe bsdk😒😒", "porn dekh le bsdk😒", "nahi degi beta😂😂", "Saans toh lene de be🤢", "Meri shaktiyo ka galat istmaal ho raha😪😪", "Aisa keech ke lafa dunga😂😂", "Abey Saale🙄🙄", "Bahot tez ho gaye ho😏😏", "Hila le bsdk😂😂", "I am ded👻👻"];
                 const rand = Math.floor(Math.random() * adult.length);
                 await client.reply(from, `${adult[rand]}`, id)
@@ -348,6 +349,7 @@ module.exports = msgHandler = async (client, message) => {
             case 'sendboobs':
             case 'sendboob':
             case 'sendpussy ':
+            case 'nude':    
                 const adult2 = ["Porn dekh le na😒😒", "Kon hai ye log😆", "Bura lagta hai bhai😒", "Saabhash! beta😒", "Waaah", "Tu virgin hi marega😜😜", "Chillao mat attack aa jayega", "Koi sense hai is baat ki🤨🤨", "Ise kehte hai angrez🤣🤣", "Hila le bsdk😂😂", "Paisa barbaad behcho😣😣"];
                 const random4 = Math.floor(Math.random() * adult2.length);
                 await client.reply(from, `${adult2[random4]}`, id)
