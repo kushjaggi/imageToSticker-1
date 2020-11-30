@@ -398,7 +398,8 @@ module.exports = msgHandler = async (client, message) => {
                 break
 
 
-            case 'botstat': {
+            case 'botstat':
+            case 'botstats': {
                 const loadedMsg = await client.getAmountOfLoadedMessages()
                 const chatIds = await client.getAllChatIds()
                 const groups = await client.getAllGroups()
