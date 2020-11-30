@@ -77,6 +77,7 @@ module.exports = msgHandler = async (client, message) => {
             
             case 'say':
                 const sayWord = body.slice(4)
+                if (args.length !== 1) return client.reply(from, 'Kyaa bolu bhai?🧐🧐', id)
                 client.reply(from, `${sayWord}`, id)
                 break  
 
@@ -84,13 +85,13 @@ module.exports = msgHandler = async (client, message) => {
                 client.sendStickerfromUrl(from, 'https://i.imgur.com/w80GYvf.png', 'alu.png', id)
                 break
 
-            case 'arpit':
-                client.reply(from, 'Arpit chutiya hai🤣🤣',id)
+            case 'sexy':
+                client.reply(from, 'Wo to main hu hi🤣🤣',id)
                 break
 
 
             case 'abuse':
-                const list1 = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Gaand maar lo bc", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
+                const list1 = ["Bhosdike", "Madarchod", "Ramdi", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Jhat ke baal", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * list1.length);
                 if (mentionedJidList.length === 0) return client.reply(from, 'Kisko gaali deni hai bolo🤬🤬', id)
                 if (mentionedJidList[0] === botNumber) return await client.reply(from, 'khud ko gaali nahi deta main😎😎', id)
