@@ -77,7 +77,7 @@ module.exports = msgHandler = async (client, message) => {
             
             case 'say':
                 const sayWord = body.slice(4)
-                if (args.length !== 1) return client.reply(from, 'Kyaa bolu bhai?🧐🧐', id)
+                if (args.length < 1) return client.reply(from, 'Kyaa bolu bhai?🧐🧐', id)
                 client.reply(from, `${sayWord}`, id)
                 break  
 
