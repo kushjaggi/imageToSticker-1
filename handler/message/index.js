@@ -127,6 +127,19 @@ module.exports = msgHandler = async (client, message) => {
                 const random2 = Math.floor(Math.random() * bot.length);
                 await client.reply(from, `${bot[random2]}`, id)
                 break
+            
+            case 'kiss':
+                const giphylinks = ["https://media.giphy.com/media/l2Je2M4Nfrit0L7sQ/giphy-downsized.gif","https://media.giphy.com/media/3o7qDVQ2GrFAf1MVgc/giphy-downsized.gif","https://media.giphy.com/media/RW4Vf0698oX3W/giphy-downsized.gif",
+                "https://media.giphy.com/media/wf4UuPMYnwBck/giphy-downsized.gif","https://media.giphy.com/media/plsoC32RpEngk/giphy-downsized.gif","https://media.giphy.com/media/2stFpADPSpfQQ/giphy-downsized.gif","https://media.giphy.com/media/nxNwAJqEty4py/giphy-downsized.gif",
+                "https://media.giphy.com/media/Vr115pWzOnMtO/giphy-downsized.gif","https://media.giphy.com/media/Qz6TS5AZVbWFi/giphy-downsized.gif","https://media.giphy.com/media/8FGvwxpd9rrvW/giphy-downsized.gif"];
+                const GiphyRandom = Math.floor(Math.random() * giphylinks.length);
+                client.sendGiphyAsSticker(from, `${giphylinks[GiphyRandom]}`).then(() => {
+                    await client.sendTextWithMentions(from, `Kissed @${mentionedJidList[0].replace('@c.us', '')}`, id)
+                    console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
+                }).catch((err) => console.log(err))
+                break    
+            
+
 
             case 'speed':
             case 'ping':
