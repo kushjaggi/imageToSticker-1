@@ -246,34 +246,7 @@ module.exports = msgHandler = async (client, message) => {
                 }
                 break
             }
-            case 'stikergif':
-            case 'stickergif':
-            case 'gifstiker':
-            case 'gifsticker': {
-                if (args.length !== 1) return client.reply(from, 'upload your gif on https://giphy.com/upload and then try with giphy link🙌', id)
-                if (is.Giphy(url)) {
-                    const getGiphyCode = url.match(new RegExp(/(\/|\-)(?:.(?!(\/|\-)))+$/, 'gi'))
-                    if (!getGiphyCode) { return client.reply(from, 'Nahi mila bhai 😟', id) }
-                    const giphyCode = getGiphyCode[0].replace(/[-\/]/gi, '')
-                    const smallGifUrl = 'https://media.giphy.com/media/' + giphyCode + '/giphy-downsized.gif'
-                    client.sendGiphyAsSticker(from, smallGifUrl).then(() => {
-                        client.reply(from, 'Ye le aish kar')
-                        console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
-                    }).catch((err) => console.log(err))
-                } else if (is.MediaGiphy(url)) {
-                    const gifUrl = url.match(new RegExp(/(giphy|source).(gif|mp4)/, 'gi'))
-                    if (!gifUrl) { return client.reply(from, 'Nahi mila bhai 😟', id) }
-                    const smallGifUrl = url.replace(gifUrl[0], 'giphy-downsized.gif')
-                    client.sendGiphyAsSticker(from, smallGifUrl).then(() => {
-                        client.reply(from, 'Ye le aish kar💃🏻💃🏻')
-                        console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
-                    }).catch((err) => console.log(err))
-                } else {
-                    await client.reply(from, 'upload your gif on https://giphy.com/upload and then try with giphy link', id)
-                }
-                break
-            }
-            // Video Downloader
+           
             case 'tiktok':
                 client.reply(from, 'Bhosdike tiktoker, nikal yaha se🤬🤬', id)
                 break
@@ -411,6 +384,7 @@ module.exports = msgHandler = async (client, message) => {
 
             // Group Commands (group admin only)
             case 'kick':
+            case 'remove':    
                 if (!isGroupMsg) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
                 if (!isGroupAdmins) return client.reply(from, 'Admin nahi hai bhai tu, Sorry😞', id)
                 if (!isBotGroupAdmins) return client.reply(from, 'Bhai pehle mujhe admin to bana🙄', id)

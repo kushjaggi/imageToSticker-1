@@ -29,8 +29,8 @@ To convert an image into a sticker, send the image with the caption #sticker or 
 2. *#sticker* _<Image Url>_
 To change the image from the url to a sticker.
 
-3. *#gifsticker* _<Giphy URL>_ / *#stickergif* _<Giphy URL>_
-upload your GIF on giphy.com/upload and send the link
+3. *#animate* 
+Send your 10 sec video or GIF with this
 
 4. *#ig* _<reels video url>_
 Will return the Instagram Reels download link.
