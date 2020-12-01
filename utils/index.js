@@ -45,9 +45,7 @@ module.exports = {
     },
     processTime,
     is: {
-        Url,
-        Giphy,
-        MediaGiphy
+        Url
     },
     color,
     messageLog
