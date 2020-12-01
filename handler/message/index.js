@@ -95,7 +95,8 @@ module.exports = msgHandler = async (client, message) => {
 
 
             case 'abuse':
-                const list1 = ["Bhosdike", "Madarchod", "Bhen ke takke","Saala kutta", "Kamina", "Kamini", "Kutta", "Kuttiya", "Chakka","Hijra","Chullu bhar muth mein doob mar", "Gadha", "Tatti", "Bhadwe", "Hazaar lund teri gaand main",
+                const list1 = ["Chipkali ke jhaat ke paseene", "Apni gaand mein muthi daal", "Chut ka bhoot", "tere gaand main danda", "Lavde ke baal", "nahi dunga tumhe gaali", "bhai hai mera", "tujhe nhi dunga gaali tu bhai hai", "Teri maa ki chut", "Teri gaand main kute ka lund",
+                 "Lund Ke Pasine", "Gaand ke khatmal", "nahi deta gaali main", "i love you","Bhosdike", "Madarchod", "Bhen ke takke","Saala kutta", "Kamina", "Kamini", "Kutta", "Kuttiya", "Chakka","Hijra","Chullu bhar muth mein doob mar", "Gadha", "Tatti", "Bhadwe", "Hazaar lund teri gaand main",
                  "Kutte ke poot, teri maa ki choot","Teri maa ka bhosda", "Bol teri gand kaise maru", "Saale", "Chutiye", "Betichod", "Behenchod", "Bhen ke lode", "Jhat ke baal", "Chodu", "Gandu", "Gand ke aandhe", "Saale mutthal", "Jhaatu", "Chipkali ke jhaat ke baal", "Kitna Gaali Dilwayega Bhai"];
                 const random1 = Math.floor(Math.random() * list1.length);
                 if (mentionedJidList.length === 0) return client.reply(from, 'Kisko gaali deni hai bolo🤬🤬', id)
